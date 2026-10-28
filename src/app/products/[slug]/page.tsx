@@ -18,6 +18,11 @@ import {
   Layers,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import ForexCrmProductPage from "../forex-crm/page";
+import TradersRoomPage from "../traders-room/page";
+import IbAffiliateSystemPage from "../ib-affiliate-system/page";
+import MobileAppKycPage from "../mobile-app-kyc/page";
+import AiVoiceIntelligencePage from "../ai-voice-intelligence/page";
 
 interface ProductPageProps {
   params: Promise<{
@@ -35,6 +40,41 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === "forex-crm") {
+    return {
+      title: "Operations & Back Office | Forex CRM System | tech4broker",
+      description:
+        "Comprehensive Forex CRM and Back Office System built for brokerages and financial institutions. Intuitive Traders' Room, MT4/MT5 integrations, auto KYC & AML, and compliance reporting.",
+    };
+  }
+  if (slug === "traders-room") {
+    return {
+      title: "Client Area | Forex Trader's Room | tech4broker",
+      description:
+        "Next-generation Forex Trader's Room & Client Area. Accelerate first-time deposits, dynamic KYC & automated AML compliance, frictionless multi-currency wallet, and intelligent retention tools.",
+    };
+  }
+  if (slug === "ib-affiliate-system") {
+    return {
+      title: "Partner & IB Management | RebateCore | tech4broker",
+      description:
+        "Scale your brokerage's multi-tier referral networks with RebateCore. Real-time commission calculation, multi-campaign flexibility, and instant partner payouts.",
+    };
+  }
+  if (slug === "mobile-app-kyc") {
+    return {
+      title: "Mobile App with online-KYC | tech4broker",
+      description:
+        "White-label mobile app with native online-KYC, OCR, NFC ID verification, multi-platform centralized wallet, and mobile trading.",
+    };
+  }
+  if (slug === "ai-voice-intelligence") {
+    return {
+      title: "Voice Analytics | AI Voice Intelligence Engine | tech4broker",
+      description:
+        "AudioSense uses AI to analyze customer calls, detect sentiment, evaluate performance, and flag compliance risks, helping businesses enhance service and productivity.",
+    };
+  }
   const product = getProductBySlug(slug);
 
   if (!product) {
@@ -71,6 +111,21 @@ function ProductIcon({ icon }: { icon: string }) {
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
+  if (slug === "forex-crm") {
+    return <ForexCrmProductPage />;
+  }
+  if (slug === "traders-room") {
+    return <TradersRoomPage />;
+  }
+  if (slug === "ib-affiliate-system") {
+    return <IbAffiliateSystemPage />;
+  }
+  if (slug === "mobile-app-kyc") {
+    return <MobileAppKycPage />;
+  }
+  if (slug === "ai-voice-intelligence") {
+    return <AiVoiceIntelligencePage />;
+  }
   const product = getProductBySlug(slug);
 
   if (!product) {

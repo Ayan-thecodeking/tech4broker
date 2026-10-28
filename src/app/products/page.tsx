@@ -17,6 +17,8 @@ import {
   Globe2,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { ServicesWeOfferSection } from "@/components/sections/shared/ServicesWeOfferSection";
+import { FlexibleCrmBanner } from "@/components/sections/shared/FlexibleCrmBanner";
 
 export const metadata: Metadata = {
   title: "All Products & Brokerage Solutions | tech4broker",
@@ -165,7 +167,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Bottom CTA Banner */}
-          <div className="text-center py-10">
+          <div className="text-center py-10 mb-4">
             <h3 className="text-2xl font-bold text-[var(--color-text)] mb-4">
               Ready to see the products in action?
             </h3>
@@ -182,6 +184,12 @@ export default function ProductsPage() {
             </Button>
           </div>
         </div>
+
+        {/* Services We Offer Section (Bottom) */}
+        <ServicesWeOfferSection />
+
+        {/* Flexible & Customisable CRM Banner (Bottom) */}
+        <FlexibleCrmBanner />
       </main>
     </div>
   );

@@ -10,6 +10,8 @@ import { EcosystemSection } from "@/components/sections/ecosystem/EcosystemSecti
 import { KeyFeaturesSection } from "@/components/sections/key-features/KeyFeaturesSection";
 import { BlogSection } from "@/components/sections/blog/BlogSection";
 import { FaqSection } from "@/components/sections/faq/FaqSection";
+import { ServicesWeOfferSection } from "@/components/sections/shared/ServicesWeOfferSection";
+import { FlexibleCrmBanner } from "@/components/sections/shared/FlexibleCrmBanner";
 import { siteConfig } from "@/config/site";
 import {
   heroContent,
@@ -74,6 +76,12 @@ export default function HomePage() {
 
         {/* FAQ Section matching verified-tips */}
         <FaqSection />
+
+        {/* Services We Offer Section (Bottom) */}
+        <ServicesWeOfferSection />
+
+        {/* Flexible & Customisable CRM Banner (Bottom) */}
+        <FlexibleCrmBanner />
       </main>
     </div>
   );
