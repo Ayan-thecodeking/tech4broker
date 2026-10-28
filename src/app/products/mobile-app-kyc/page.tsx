@@ -29,7 +29,6 @@ export default function MobileAppKycPage() {
         {/* Section 1: Hero Dark Banner */}
         <ProductHeroBanner
           title={mobileAppKycContent.hero.title}
-          subtitle="Native iOS & Android Trading & Online-KYC"
         />
 
         {/* Section 2: Mobile Phone Mockup & Overview (Screenshot 1) */}

@@ -418,3 +418,36 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* ==========================================================================
+   6. Trader's Room Floating Animated Bubbles
+   ========================================================================== */
+
+@keyframes bubbleFloatUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes bubbleFloatDown {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(8deg);
+  }
+}
+
+.animate-bubble-float-1 {
+  animation: bubbleFloatUp 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-bubble-float-2 {
+  animation: bubbleFloatDown 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+

@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { siteConfig } from "@/config/site";
-import { ProductHeroBanner } from "@/components/sections/shared/ProductHeroBanner";
+import { TradersHeroBanner } from "@/components/sections/traders-room/TradersHeroBanner";
 import { TradersValuePropSection } from "@/components/sections/traders-room/TradersValuePropSection";
 import { TradersLifecycleSection } from "@/components/sections/traders-room/TradersLifecycleSection";
 import { TradersFirstTimeDepositsSection } from "@/components/sections/traders-room/TradersFirstTimeDepositsSection";
@@ -33,12 +33,8 @@ export default function TradersRoomPage() {
       />
 
       <main className="flex-1 flex flex-col">
-        {/* Section 1: Hero Dark Banner */}
-        <ProductHeroBanner
-          badge={tradersRoomContent.hero.badge}
-          title={tradersRoomContent.hero.title}
-          subtitle="Forex Trader's Room & Client Area"
-        />
+        {/* Section 1: Hero Dark Banner with Animated Floating Bubbles (Screenshot 1) */}
+        <TradersHeroBanner />
 
         {/* Section 2: Brokerage Growth & Retention Infrastructure (Screenshot 2: Convert Faster, 2x2 Stats) */}
         <TradersValuePropSection />

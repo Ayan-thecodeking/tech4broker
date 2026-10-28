@@ -36,7 +36,6 @@ export default function AiVoiceIntelligencePage() {
         {/* Section 1: Hero Dark Banner */}
         <ProductHeroBanner
           title={aiVoiceIntelligenceContent.hero.title}
-          subtitle="AI Voice Intelligence Engine"
         />
 
         {/* Section 2: The Intelligence Layer & Live Demo Form (Screenshot 1) */}

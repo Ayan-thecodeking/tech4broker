@@ -17,6 +17,7 @@ import {
   Globe2,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { ProductHeroBanner } from "@/components/sections/shared/ProductHeroBanner";
 import { ServicesWeOfferSection } from "@/components/sections/shared/ServicesWeOfferSection";
 import { FlexibleCrmBanner } from "@/components/sections/shared/FlexibleCrmBanner";
 
@@ -57,17 +58,22 @@ export default function ProductsPage() {
       />
 
       {/* Main Container */}
-      <main className="flex-1 pt-28 sm:pt-36 pb-20">
-        <div className="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Header */}
+      <main className="flex-1 flex flex-col pb-20">
+        <ProductHeroBanner
+          title="All Products & Solutions"
+          subtitle="Modular Brokerage Infrastructure Ecosystem"
+        />
+
+        <div className="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+          {/* Section Sub-Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4">
               <Zap className="w-3.5 h-3.5" />
               <span>Full-Stack Broker Infrastructure</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text)] mb-6">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text)] mb-6">
               Our Complete Suite of Brokerage Products
-            </h1>
+            </h2>
             <p className="text-base sm:text-lg text-[var(--color-text-muted)] leading-relaxed">
               From centralized back-office administration to intelligent voice analytics, explore our modular technology stack engineered to help Forex brokers and Prop firms scale efficiently.
             </p>

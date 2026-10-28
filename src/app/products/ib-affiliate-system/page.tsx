@@ -27,10 +27,9 @@ export default function IbAffiliateSystemPage() {
       />
 
       <main className="flex-1 flex flex-col">
-        {/* Section 1: Top Hero Banner */}
+        {/* Section 1: Top Hero Banner (Matching Main Reference Design) */}
         <ProductHeroBanner
           title={ibAffiliateContent.hero.title}
-          subtitle="Multi-Tier Affiliate & Rebate System"
         />
 
         {/* Section 2: Hierarchy Tree Diagram & RebateCore Overview (Screenshot 1) */}
