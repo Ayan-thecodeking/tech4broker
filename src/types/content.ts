@@ -1,11 +1,21 @@
 export type NavItemIconType = "handshake" | "network" | "checkCircle";
 
+export interface NavDropdownProduct {
+  id: string;
+  slug: string;
+  name: string;
+  shortDescription: string;
+  icon: "barChart" | "users" | "network" | "smartphone" | "mic";
+}
+
 export interface NavLinkItem {
   label: string;
   href: string;
   icon?: NavItemIconType;
   iconColor?: string;
   isActive?: boolean;
+  isDropdown?: boolean;
+  dropdownProducts?: NavDropdownProduct[];
 }
 
 export interface SiteConfig {

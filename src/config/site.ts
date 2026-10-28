@@ -1,4 +1,5 @@
 import type { SiteConfig } from "@/types/content";
+import { productsList } from "@/content/products";
 
 export const FOUNDED_YEAR = 2008;
 
@@ -14,32 +15,40 @@ export const siteConfig: SiteConfig = {
   },
   navLinks: [
     {
-      label: "Forex CRM",
-      href: "#forex-crm",
+      label: "Product",
+      href: "/products",
+      isDropdown: true,
+      dropdownProducts: productsList.map((p) => ({
+        id: p.id,
+        slug: p.slug,
+        name: p.name,
+        shortDescription: p.shortDescription,
+        icon: p.icon,
+      })),
     },
     {
       label: "Prop CRM",
-      href: "#prop-crm",
+      href: "/#prop-crm",
     },
     {
       label: "Integrated",
-      href: "#integrated",
+      href: "/#integrated",
       icon: "network",
       iconColor: "var(--color-purple)",
     },
     {
       label: "Compliant",
-      href: "#compliant",
+      href: "/#compliant",
       icon: "checkCircle",
       iconColor: "var(--color-teal)",
     },
     {
       label: "Contact",
-      href: "#contact",
+      href: "/#contact",
     },
   ],
   cta: {
     bookDemo: "BOOK A DEMO",
-    bookDemoUrl: "#demo",
+    bookDemoUrl: "/#demo",
   },
 };
