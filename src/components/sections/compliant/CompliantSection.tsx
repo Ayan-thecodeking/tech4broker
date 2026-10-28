@@ -29,40 +29,38 @@ export function CompliantSection({
         className
       )}
     >
-      <Container className="relative z-10">
-        {/* Eyebrow 'COMPLIANT' Centered over the entire section (rendered only if provided) */}
-        {compliant.eyebrow && (
-          <div className="w-full flex justify-center mb-10 sm:mb-12 lg:mb-16">
-            <SectionHeading
-              id="compliant-heading"
-              eyebrow={compliant.eyebrow}
-              title=""
-              align="center"
-              eyebrowClassName="mb-0"
-            />
-          </div>
-        )}
+      {/* Eyebrow 'COMPLIANT' Centered over the entire section (rendered only if provided) */}
+      {compliant.eyebrow && (
+        <Container className="relative z-10 mb-10 sm:mb-12 lg:mb-16">
+          <SectionHeading
+            id="compliant-heading"
+            eyebrow={compliant.eyebrow}
+            title=""
+            align="center"
+            eyebrowClassName="mb-0"
+          />
+        </Container>
+      )}
 
-        {/* Two-Column Grid: 3D Animated Globe on Left, Content & Pills on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 xl:gap-[120px]">
-          {/* Left Column: Globe Canvas */}
-          <div className="flex justify-center items-center w-full">
-            <GlobeCanvas
-              activeJurisdictionId={activeJurisdictionId}
-              onSelectJurisdiction={setActiveJurisdictionId}
-            />
-          </div>
-
-          {/* Right Column: Copy, Jurisdictions & Centered CTA */}
-          <div className="flex justify-center lg:justify-start w-full">
-            <CompliantContent
-              content={compliant}
-              activeJurisdictionId={activeJurisdictionId}
-              onSelectJurisdiction={setActiveJurisdictionId}
-            />
-          </div>
+      {/* Main Content Area: Snug spacing between globe and content on desktop */}
+      <div className="relative w-full flex flex-col lg:flex-row items-center lg:min-h-[640px] xl:min-h-[720px]">
+        {/* Left Column: On desktop, stuck to extreme left edge showing half; on mobile, centered */}
+        <div className="flex justify-center items-center w-full lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2 lg:w-auto lg:h-auto z-10 pointer-events-auto mb-10 lg:mb-0">
+          <GlobeCanvas
+            activeJurisdictionId={activeJurisdictionId}
+            onSelectJurisdiction={setActiveJurisdictionId}
+          />
         </div>
-      </Container>
+
+        {/* Right / Copy Column: Positioned snug right beside the half globe on desktop, centered on mobile */}
+        <div className="w-full px-[var(--container-padding-x)] lg:px-0 lg:pl-[calc(var(--globe-size)/2+32px)] xl:pl-[calc(var(--globe-size)/2+48px)] z-20 flex justify-center lg:justify-start">
+          <CompliantContent
+            content={compliant}
+            activeJurisdictionId={activeJurisdictionId}
+            onSelectJurisdiction={setActiveJurisdictionId}
+          />
+        </div>
+      </div>
     </section>
   );
 }

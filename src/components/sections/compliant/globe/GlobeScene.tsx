@@ -487,7 +487,9 @@ export function GlobeScene({
     // 9. Focus Jurisdiction Animation Function
     const focusJurisdiction = (lat: number, lon: number) => {
       lastInteractionTime = Date.now() + 5000; // prevent auto-rotation override
-      const targetY = -lon * (Math.PI / 180);
+      const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
+      const desktopOffset = isDesktop ? THREE.MathUtils.degToRad(32) : 0;
+      const targetY = -lon * (Math.PI / 180) + desktopOffset;
       const targetX = THREE.MathUtils.clamp(
         (lat * 0.75) * (Math.PI / 180),
         -Math.PI / 3.5,
@@ -508,8 +510,10 @@ export function GlobeScene({
 
     const resetView = () => {
       lastInteractionTime = Date.now();
+      const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
+      const desktopOffset = isDesktop ? THREE.MathUtils.degToRad(32) : 0;
       gsap.to(globeGroup.rotation, {
-        y: 0,
+        y: desktopOffset,
         x: 0,
         duration: 1.2,
         ease: "power2.out",

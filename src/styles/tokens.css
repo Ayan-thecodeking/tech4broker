@@ -110,7 +110,7 @@
   --integrated-cta-gap: clamp(3rem, 4.5vw, 5.3125rem);
 
   /* Compliant Section Tokens */
-  --globe-size: clamp(280px, 27vw, 520px);
+  --globe-size: clamp(300px, 75vw, 440px);
   --color-globe-base: #FFFFFF;
   --color-globe-rim: #E2E8F0;
   --color-globe-dot: #FFFFFF;
@@ -271,6 +271,7 @@
 @media (min-width: 1024px) {
   :root {
     --container-padding-x: 48px;
+    --globe-size: clamp(700px, 54vw, 960px);
   }
 }
 
