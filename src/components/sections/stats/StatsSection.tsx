@@ -18,15 +18,6 @@ export function StatsSection({ award, stats, className }: StatsSectionProps) {
       aria-labelledby="stats-section-heading"
       className={cn("section-stats", className)}
     >
-      {/* Soft blurred lilac ambient glow at the right edge continuing the hero background */}
-      <div
-        className="absolute top-1/4 right-0 w-[460px] h-[400px] bg-[#C45CF0]/10 rounded-full blur-[140px] pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-16 -right-16 w-[400px] h-[360px] bg-[#C45CF0]/8 rounded-full blur-[130px] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <Container className="relative z-10 pt-6 sm:pt-8 lg:pt-12 pb-12 sm:pb-16 lg:pb-[var(--section-padding-bottom)]">
         {/* Visually hidden semantic heading for accessibility */}
@@ -36,7 +27,7 @@ export function StatsSection({ award, stats, className }: StatsSectionProps) {
 
         {/* 1. Centered Award Row */}
         {award.enabled && (
-          <div className="w-full flex justify-center mb-8 sm:mb-12 lg:mb-28">
+          <div className="w-full flex justify-center mb-8 sm:mb-10 lg:mb-14">
             <AwardBadge award={award} />
           </div>
         )}

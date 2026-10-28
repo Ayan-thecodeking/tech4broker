@@ -16,7 +16,7 @@ export const heroContent: HeroContentData = {
   paragraph:
     "tech4broker gives brokers one platform to onboard, fund, and manage traders with the integrations and compliance you need.",
   tagline: "Trusted. Integrated. Compliant.",
-  ctaButtonText: "BOOK A DEMO",
+  ctaButtonText: "Book a demo",
   ctaButtonUrl: "#demo",
   candlestick: {
     startDate: "4 Apr.",
@@ -84,9 +84,9 @@ export const heroContent: HeroContentData = {
 export const statsContent: StatsSectionData = {
   award: {
     enabled: true,
-    badgeImage: "",
-    badgeAlt: "Global Forex Awards B2B 2024 Voted #1 CRM",
-    text: "Voted #1 CRM",
+    badgeImage: "/voted.png",
+    badgeAlt: "Voted #1 CRM",
+    text: "",
   },
   stats: [
     { value: 350, suffix: "+", label: "Clients" },
@@ -118,7 +118,7 @@ export const trustedContent: TrustedData = {
 };
 
 export const integratedContent: IntegratedData = {
-  eyebrow: "INTEGRATED",
+  eyebrow: "",
   title: "Working with your favorite trading platforms",
   platforms: [
     {
@@ -165,15 +165,15 @@ export const integratedContent: IntegratedData = {
   moreCount: 7,
   moreHref: "/integrations",
   cta: {
-    label: "BOOK A DEMO",
+    label: "Book a demo",
     href: "/book-a-demo",
   },
 };
 
 export const compliantContent: CompliantData = {
-  eyebrow: "COMPLIANT",
-  kicker: "Worldwide Compliance",
-  showRankBadge: true,
+  eyebrow: "",
+  kicker: "",
+  showRankBadge: false,
   title: "Keeping You Compliant Wherever You Are Regulated",
   description:
     "Our system meets all standards and requirements relevant to your jurisdiction.",
@@ -190,13 +190,13 @@ export const compliantContent: CompliantData = {
   ],
   moreLabel: "+ more jurisdictions",
   cta: {
-    label: "BOOK A DEMO",
+    label: "Book a demo",
     href: "/book-a-demo",
   },
 };
 
 export const paymentsContent: PaymentsData = {
-  eyebrow: "PAYMENTS",
+  eyebrow: "",
   title: "Working with your favorite Payment providers",
   animated: true,
   providers: [
@@ -296,7 +296,7 @@ export const paymentsContent: PaymentsData = {
 };
 
 export const supportContent: SupportData = {
-  eyebrow: "SUPPORT",
+  eyebrow: "",
   title: "We're Part of Your Team",
   features: [
     {
@@ -332,13 +332,13 @@ export const supportContent: SupportData = {
     },
   ],
   cta: {
-    label: "BOOK A DEMO",
+    label: "Book a demo",
     href: "/book-a-demo",
   },
 };
 
 export const customizedContent: CustomizedData = {
-  eyebrow: "CUSTOMIZED",
+  eyebrow: "",
   title: "Your design, your business flows, your way",
   autoRotate: false,
   tabs: [
@@ -425,13 +425,13 @@ export const customizedContent: CustomizedData = {
     ],
   },
   cta: {
-    label: "BOOK A DEMO",
+    label: "Book a demo",
     href: "/book-a-demo",
   },
 };
 
 export const ecosystemContent = {
-  eyebrow: "ECOSYSTEM",
+  eyebrow: "",
   title: "Grow your business with no constraints",
   subtitle:
     "tech4broker connects with the tools you already use, so one platform covers your needs",
@@ -541,7 +541,7 @@ export const ecosystemContent = {
     },
   ],
   cta: {
-    label: "BOOK A DEMO",
+    label: "Book a demo",
     href: "/book-a-demo",
   },
 };
@@ -661,7 +661,7 @@ export const keyFeaturesContent = {
     ],
   },
   cta: {
-    label: "BOOK A DEMO",
+    label: "Book a demo",
     href: "/book-a-demo",
   },
 };

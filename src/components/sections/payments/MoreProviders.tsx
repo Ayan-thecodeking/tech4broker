@@ -25,13 +25,13 @@ export function MoreProviders({
     >
       {/* Circle + Icon Button */}
       <div
-        className="w-[var(--more-circle-size-lg)] h-[var(--more-circle-size-lg)] aspect-square rounded-full flex items-center justify-center shrink-0 border border-[var(--color-border)] bg-slate-50/80 dark:bg-slate-900/60 shadow-2xs transition-all duration-[var(--transition-base)] group-hover:scale-105 group-hover:shadow-md group-hover:border-[var(--color-primary)]"
+        className="w-[var(--more-circle-size-lg)] h-[var(--more-circle-size-lg)] aspect-square rounded-full flex items-center justify-center shrink-0 border border-[var(--color-border)] bg-slate-50/80 dark:bg-slate-900/60 shadow-2xs"
         aria-hidden="true"
       >
         <Plus
           size={30}
           strokeWidth={1.5}
-          className="text-[var(--color-text-muted)] transition-transform duration-[var(--transition-base)] group-hover:rotate-90 group-hover:text-[var(--color-primary)]"
+          className="text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors duration-[var(--transition-base)]"
         />
       </div>
 

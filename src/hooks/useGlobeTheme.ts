@@ -14,7 +14,7 @@ export interface GlobeThemeColors {
 
 const defaultColors: GlobeThemeColors = {
   base: "#FFFFFF",
-  rim: "#FFFFFF",
+  rim: "#E2E8F0",
   dot: "#FFFFFF",
   primary: "#0A6CFF",
   purple: "#8B5CF6",

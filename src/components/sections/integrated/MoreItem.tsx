@@ -26,13 +26,13 @@ export function MoreItem({
       {/* Circle Icon Slot */}
       <div className="relative flex items-center justify-center h-[var(--platform-logo-height)] max-h-[var(--platform-logo-height)] shrink-0">
         <div
-          className="w-[var(--more-circle-size)] h-[var(--more-circle-size)] aspect-square rounded-full flex items-center justify-center border border-[var(--color-border)] bg-slate-50/80 dark:bg-slate-900/60 shadow-2xs transition-all duration-[var(--transition-base)] group-hover:scale-105 group-hover:border-[var(--color-primary)]"
+          className="w-[var(--more-circle-size)] h-[var(--more-circle-size)] aspect-square rounded-full flex items-center justify-center border border-[var(--color-border)] bg-slate-50/80 dark:bg-slate-900/60 shadow-2xs"
           aria-hidden="true"
         >
           <Plus
             size={24}
             strokeWidth={1.5}
-            className="text-[var(--color-text-muted)] transition-transform duration-[var(--transition-base)] group-hover:rotate-90 group-hover:text-[var(--color-primary)]"
+            className="text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors duration-[var(--transition-base)]"
           />
         </div>
       </div>

@@ -32,11 +32,13 @@ export function CompliantContent({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  const kickerText = content.showRankBadge
-    ? content.kicker.startsWith("#")
-      ? content.kicker
-      : `#1 ${content.kicker}`
-    : content.kicker;
+  const kickerText = content.kicker
+    ? content.showRankBadge
+      ? content.kicker.startsWith("#")
+        ? content.kicker
+        : `#1 ${content.kicker}`
+      : content.kicker
+    : "";
 
   useEffect(() => {
     if (prefersReducedMotion || !containerRef.current) return;
@@ -91,16 +93,18 @@ export function CompliantContent({
         className
       )}
     >
-      {/* 1. Kicker */}
-      <div className="animate-compliant-text">
-        <span className="text-[15px] sm:text-[length:var(--fs-kicker)] font-[number:var(--fw-regular)] text-[var(--color-text)] tracking-tight">
-          {kickerText}
-        </span>
-      </div>
+      {/* 1. Kicker (rendered only if present) */}
+      {kickerText ? (
+        <div className="animate-compliant-text mb-4 sm:mb-6">
+          <span className="text-[15px] sm:text-[length:var(--fs-kicker)] font-[number:var(--fw-regular)] text-[var(--color-text)] tracking-tight">
+            {kickerText}
+          </span>
+        </div>
+      ) : null}
 
       {/* 2. Main Title */}
-      <div className="animate-compliant-text mt-5 sm:mt-8 lg:mt-12">
-        <h2 className="text-[length:var(--fs-section-title)] font-[number:var(--fw-bold)] leading-[1.15] text-[var(--color-text)] tracking-tight max-w-[560px]">
+      <div className={cn("animate-compliant-text", kickerText && "mt-5 sm:mt-8 lg:mt-12")}>
+        <h2 className="text-[length:var(--fs-section-title)] font-[number:var(--fw-bold)] leading-[1.15] text-white tracking-tight max-w-[560px]">
           <span className="block">Keeping You</span>
           <span className="block">Compliant Wherever</span>
           <span className="block">You Are Regulated</span>
@@ -109,7 +113,7 @@ export function CompliantContent({
 
       {/* 3. Description */}
       <div className="animate-compliant-text mt-5 sm:mt-8 lg:mt-12">
-        <p className="text-[14px] sm:text-[15px] lg:text-[length:var(--fs-body-md)] font-[number:var(--fw-regular)] leading-[1.35] text-[var(--color-text)]/90 max-w-[580px]">
+        <p className="text-[14px] sm:text-[15px] lg:text-[length:var(--fs-body-md)] font-[number:var(--fw-regular)] leading-[1.4] text-slate-300 max-w-[580px]">
           {content.description}
         </p>
       </div>
@@ -125,18 +129,7 @@ export function CompliantContent({
         />
       </div>
 
-      {/* 5. CTA Button: Centered under the pill group */}
-      <div className="animate-compliant-cta mt-7 sm:mt-8 flex justify-center w-full">
-        <Button
-          variant="outline"
-          size="md"
-          href={content.cta.href}
-          className="w-full max-w-[280px] sm:w-auto sm:min-w-[195px] h-[48px] px-6 text-xs sm:text-sm font-semibold tracking-[var(--ls-button)] shadow-2xs hover:shadow-sm justify-center"
-        >
-          <Calendar className="w-4 h-4 mr-1 shrink-0" aria-hidden="true" />
-          <span>{content.cta.label}</span>
-        </Button>
-      </div>
+     
     </div>
   );
 }

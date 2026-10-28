@@ -23,14 +23,11 @@ export function TrustedSection({ trusted, className }: TrustedSectionProps) {
         className
       )}
     >
-      {/* Large soft blue ambient glow bleeding from the bottom-right behind the card */}
-      <div className="trusted-section-ambient-glow" aria-hidden="true" />
-
       <Container className="relative z-10">
         {/* Main Floating Rounded Card */}
         <SectionCard
           maxWidth="wide"
-          glow="trusted"
+          glow="none"
           className="min-h-[260px] sm:min-h-[392px] justify-between pt-7 sm:pt-[clamp(2.5rem,3.5vw,3.75rem)] pb-7 sm:pb-[clamp(3rem,4.2vw,4.75rem)] px-3 sm:px-[clamp(1rem,2vw,2.5rem)]"
         >
           {/* Heading: Eyebrow 'TRUSTED' + Title */}

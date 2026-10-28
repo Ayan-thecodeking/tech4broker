@@ -78,6 +78,12 @@ export function GlobeCanvas({
         aspectRatio: "1 / 1",
       }}
     >
+      {/* Subtle contact shadow beneath the floating globe */}
+      <div
+        className="absolute -bottom-2 w-[65%] h-6 rounded-[50%] pointer-events-none opacity-40 blur-lg bg-black"
+        aria-hidden="true"
+      />
+
       {shouldFallback ? (
         <GlobeFallback />
       ) : (

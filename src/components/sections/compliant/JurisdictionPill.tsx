@@ -27,18 +27,18 @@ export function JurisdictionPill({
     return (
       <div
         className={cn(
-          "jurisdiction-pill h-[36px] sm:h-[var(--pill-height)] cursor-pointer hover:bg-slate-200/70 dark:hover:bg-slate-800/70 transition-colors",
+          "jurisdiction-pill h-[36px] sm:h-[var(--pill-height)] cursor-pointer !bg-[#131b2e] border border-white/12 hover:!bg-[#1a253c] hover:border-white/20 transition-all",
           className
         )}
       >
         {/* Teal circular checkmark */}
-        <div className="w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] rounded-full flex items-center justify-center shrink-0 text-[var(--color-teal)]">
+        <div className="w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] rounded-full flex items-center justify-center shrink-0 bg-white/[0.05] border border-white/10 text-emerald-400">
           <CheckCircle2
-            className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-teal)]"
+            className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400"
             strokeWidth={2}
           />
         </div>
-        <span className="ml-2 sm:ml-2.5 text-[13px] sm:text-[length:var(--fs-pill)] font-[number:var(--fw-regular)] text-[var(--color-text)] tracking-tight whitespace-nowrap">
+        <span className="ml-2 sm:ml-2.5 text-[13px] sm:text-[length:var(--fs-pill)] font-[number:var(--fw-regular)] text-slate-200 tracking-tight whitespace-nowrap">
           {moreLabel}
         </span>
       </div>
@@ -61,27 +61,30 @@ export function JurisdictionPill({
       className={cn(
         "jurisdiction-pill h-[36px] sm:h-[var(--pill-height)] cursor-pointer transition-all duration-200 text-left",
         isActive
-          ? "ring-2 ring-blue-500 bg-blue-50/90 dark:bg-blue-950/60 shadow-md scale-[1.03]"
-          : "hover:bg-slate-200/60 dark:hover:bg-slate-800/60 hover:scale-[1.01]",
+          ? "!bg-blue-600/40 border border-blue-400 ring-2 ring-blue-400 shadow-[0_0_16px_rgba(59,130,246,0.35)]"
+          : "!bg-[#131b2e] border border-white/12 hover:!bg-[#1a253c] hover:border-white/20",
         className
       )}
     >
       {/* Circular Flag (28px on mobile, 30px on desktop) */}
-      <div className="w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] rounded-full overflow-hidden shrink-0 flex items-center justify-center shadow-2xs border border-black/5">
+      <div className="w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] rounded-full overflow-hidden shrink-0 flex items-center justify-center border border-white/15">
         {FlagComponent ? (
           <FlagComponent
             title={`${item.label} flag`}
             className="w-full h-full object-cover scale-125"
           />
         ) : (
-          <div className="w-full h-full bg-slate-300 flex items-center justify-center text-[10px] font-bold text-slate-700">
+          <div className="w-full h-full bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-200">
             {item.countryCode}
           </div>
         )}
       </div>
 
       {/* Jurisdiction Label */}
-      <span className="ml-2 sm:ml-2.5 text-[13px] sm:text-[length:var(--fs-pill)] font-[number:var(--fw-regular)] text-[var(--color-text)] tracking-tight whitespace-nowrap">
+      <span className={cn(
+        "ml-2 sm:ml-2.5 text-[13px] sm:text-[length:var(--fs-pill)] font-[number:var(--fw-regular)] tracking-tight whitespace-nowrap",
+        isActive ? "text-white font-medium" : "text-slate-200"
+      )}>
         {item.label}
       </span>
     </button>

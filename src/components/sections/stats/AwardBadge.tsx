@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { Award } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { AwardData } from "@/types/content";
 
@@ -14,34 +13,33 @@ export function AwardBadge({ award, className }: AwardBadgeProps) {
     return null;
   }
 
+  const imageSrc = award.badgeImage || "/voted.png";
+
   return (
     <div
       className={cn(
-        "flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-center sm:text-left select-none",
+        "flex flex-col items-center justify-center text-center select-none pb-6 sm:pb-8 md:pb-10",
         className
       )}
     >
-      {/* Award Badge Card (~92x60 on mobile, ~115x75 on desktop) */}
-      <div className="w-[92px] h-[60px] sm:w-[115px] sm:h-[75px] shrink-0 rounded-2xl bg-white border border-[var(--color-border)] shadow-xs flex items-center justify-center p-2 overflow-hidden">
-        {award.badgeImage ? (
-          <Image
-            src={award.badgeImage}
-            alt={award.badgeAlt || "Award badge"}
-            width={115}
-            height={75}
-            className="w-full h-full object-contain"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-[var(--color-primary)]">
-            <Award className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.8} aria-hidden="true" />
-          </div>
-        )}
+      {/* Voted Image - renders the golden wreath and crown emblem cleanly */}
+      <div className="relative w-auto h-[52px] sm:h-[62px] md:h-[72px] flex items-center justify-center">
+        <Image
+          src={imageSrc}
+          alt={award.badgeAlt || "Voted #1 CRM"}
+          width={240}
+          height={120}
+          priority
+          className="h-full w-auto object-contain drop-shadow-[0_4px_12px_rgba(234,179,8,0.12)]"
+        />
       </div>
 
-      {/* Award Text (~18px on mobile) */}
-      <span className="text-[17px] sm:text-[19px] lg:text-award-label font-[number:var(--fw-regular)] text-[var(--color-text)] leading-snug">
-        {award.text}
-      </span>
+      {/* Render text only if non-empty */}
+      {award.text ? (
+        <span className="mt-2 text-[17px] sm:text-[19px] font-[number:var(--fw-regular)] text-[var(--color-text)] leading-snug">
+          {award.text}
+        </span>
+      ) : null}
     </div>
   );
 }

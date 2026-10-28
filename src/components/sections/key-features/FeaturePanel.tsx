@@ -48,12 +48,12 @@ export function FeaturePanel({
           </div>
 
           {/* Heading */}
-          <h3 className="mt-4 sm:mt-5 text-[20px] sm:text-[23px] lg:text-[26px] font-[number:var(--fw-semibold)] text-[var(--color-text)] leading-[1.22] tracking-tight max-w-[440px]">
+          <h3 className="mt-4 sm:mt-5 text-[20px] sm:text-[23px] lg:text-[26px] font-[number:var(--fw-semibold)] text-white leading-[1.22] tracking-tight max-w-[440px]">
             {tab.heading}
           </h3>
 
           {/* Description */}
-          <p className="mt-3 sm:mt-4 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] text-[var(--color-text)] leading-relaxed max-w-[440px]">
+          <p className="mt-3 sm:mt-4 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] text-slate-400 leading-relaxed max-w-[440px]">
             {tab.description}
           </p>
         </div>
@@ -64,7 +64,7 @@ export function FeaturePanel({
             variant="gradient"
             size="md"
             href={cta.href}
-            className="h-[42px] px-6 min-w-[168px] text-xs font-[number:var(--fw-bold)] tracking-[var(--ls-button)] uppercase shadow-[0_4px_18px_rgba(10,108,255,0.32)] gap-1.5"
+            className="h-[40px] px-6 min-w-[168px] text-sm font-semibold shadow-[0_4px_18px_rgba(10,108,255,0.32)] gap-1.5"
           >
             <Calendar size={15} strokeWidth={2.2} className="shrink-0" />
             <span>{cta.label}</span>
@@ -108,7 +108,7 @@ export function FeaturePanel({
           variant="gradient"
           size="md"
           href={cta.href}
-          className="w-full max-w-[280px] h-[42px] text-xs font-[number:var(--fw-bold)] tracking-[var(--ls-button)] uppercase shadow-[0_4px_18px_rgba(10,108,255,0.32)] gap-1.5"
+          className="w-full max-w-[280px] h-[40px] text-sm font-semibold shadow-[0_4px_18px_rgba(10,108,255,0.32)] gap-1.5"
         >
           <Calendar size={15} strokeWidth={2.2} className="shrink-0" />
           <span>{cta.label}</span>

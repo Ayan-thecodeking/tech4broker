@@ -33,14 +33,14 @@ export const siteConfig: SiteConfig = {
     {
       label: "Integrated",
       href: "/#integrated",
-      icon: "network",
-      iconColor: "var(--color-purple)",
     },
     {
       label: "Compliant",
       href: "/#compliant",
-      icon: "checkCircle",
-      iconColor: "var(--color-teal)",
+    },
+    {
+      label: "Blog",
+      href: "/#blog",
     },
     {
       label: "Contact",
@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
     },
   ],
   cta: {
-    bookDemo: "BOOK A DEMO",
-    bookDemoUrl: "/#demo",
+    bookDemo: "Book a demo",
+    bookDemoUrl: "#demo",
   },
 };

@@ -56,10 +56,8 @@ export function GlobeScene({
     if (!container || !canvas) return;
 
     const isMobile = window.innerWidth < 768;
-    const isDark =
-      typeof document !== "undefined" &&
-      (document.documentElement.classList.contains("dark") ||
-        document.documentElement.getAttribute("data-theme") === "dark");
+    // CompliantSection is dark themed (#0b0f19) matching the footer
+    const isDark = true;
 
     // 1. Scene, Camera, Renderer
     const scene = new THREE.Scene();
@@ -121,26 +119,31 @@ export function GlobeScene({
 
         // Fresnel calculation for 3D sphere curvature
         float fresnel = 1.0 - max(dot(viewDir, normal), 0.0);
-        fresnel = pow(fresnel, 2.2);
+        float edgeRim = pow(fresnel, 2.2);
 
         // Soft lighting gradient for gentle 3D volume
-        vec3 lightDir = normalize(vec3(0.3, 0.8, 1.0));
-        float diff = max(dot(normal, lightDir), 0.0) * 0.35 + 0.65;
+        vec3 lightDir = normalize(vec3(0.5, 0.8, 1.0));
+        float diff = max(dot(normal, lightDir), 0.0) * 0.30 + 0.70;
 
-        // Whitish frosted pearl/slate body (distinct from pure #FFFFFF bg)
-        vec3 oceanBody = mix(uDeepColor, uBaseColor * diff, 0.65);
-        vec3 finalColor = mix(oceanBody, uRimColor, fresnel * 0.6);
+        // Specular highlight for pearl/ceramic white sheen
+        vec3 halfDir = normalize(lightDir + viewDir);
+        float spec = pow(max(dot(normal, halfDir), 0.0), 32.0) * 0.20;
 
-        // Semi-transparent / translucent (frosted glass feel)
-        float alpha = uIsDark > 0.5 ? mix(0.35, 0.70, fresnel) : mix(0.24, 0.58, fresnel);
+        // Pure luminous white body
+        vec3 oceanBody = mix(uDeepColor, uBaseColor, diff) + spec;
+        // Subtle soft rim contour for delicate edge definition on white bg
+        vec3 finalColor = mix(oceanBody, uRimColor, edgeRim * 0.35);
+
+        // Fully solid white in light mode, dark translucent in dark mode
+        float alpha = uIsDark > 0.5 ? mix(0.40, 0.75, edgeRim) : 1.0;
 
         gl_FragColor = vec4(finalColor, alpha);
       }
     `;
 
-    const oceanBaseColor = isDark ? new THREE.Color("#1E293B") : new THREE.Color("#F8FAFC");
-    const oceanDeepColor = isDark ? new THREE.Color("#0F172A") : new THREE.Color("#E2E8F0");
-    const rimColor = isDark ? new THREE.Color("#64748B") : new THREE.Color("#CBD5E1");
+    const oceanBaseColor = isDark ? new THREE.Color("#141D32") : new THREE.Color("#FFFFFF");
+    const oceanDeepColor = isDark ? new THREE.Color("#0B0F19") : new THREE.Color("#FFFFFF");
+    const rimColor = isDark ? new THREE.Color("#38BDF8") : new THREE.Color("#E2E8F0");
 
     const sphereMat = new THREE.ShaderMaterial({
       vertexShader: oceanVertexShader,
@@ -152,7 +155,7 @@ export function GlobeScene({
         uIsDark: { value: isDark ? 1.0 : 0.0 },
       },
       transparent: true,
-      depthWrite: false,
+      depthWrite: true,
     });
 
     const baseSphere = new THREE.Mesh(sphereGeo, sphereMat);
@@ -164,35 +167,36 @@ export function GlobeScene({
     const mapMat = new THREE.MeshBasicMaterial({
       map: mapTexture,
       transparent: true,
-      opacity: 0.92,
+      opacity: 0.95,
       depthWrite: false,
     });
     const mapMesh = new THREE.Mesh(mapGeo, mapMat);
     globeGroup.add(mapMesh);
 
-    // 4. Regular 3D Dotted Land Matrix
+    // 4. Regular 3D Dotted Land Matrix (only active in dark mode to keep light mode pristine white)
     const circleTexture = createCircleTexture();
     const landPositions = createLandPoints(isMobile, sphereRadius + 0.02);
     const landGeo = new THREE.BufferGeometry();
     landGeo.setAttribute("position", new THREE.BufferAttribute(landPositions, 3));
 
-    const landDotColor = new THREE.Color("#FFFFFF");
+    const landDotColor = isDark ? new THREE.Color("#94A3B8") : new THREE.Color("#FFFFFF");
 
     const landMat = new THREE.PointsMaterial({
-      size: isMobile ? 0.046 : 0.052,
+      size: isMobile ? 0.040 : 0.044,
       map: circleTexture,
       transparent: true,
-      opacity: isDark ? 0.95 : 0.88,
+      opacity: isDark ? 0.95 : 0.0,
       color: landDotColor,
       sizeAttenuation: true,
       depthWrite: false,
     });
 
     const landPoints = new THREE.Points(landGeo, landMat);
+    landPoints.visible = isDark;
     globeGroup.add(landPoints);
 
     // 5. Atmospheric Outer Fresnel Glow Shell
-    const haloGeo = new THREE.SphereGeometry(sphereRadius + 0.08, 48, 48);
+    const haloGeo = new THREE.SphereGeometry(sphereRadius + 0.06, 48, 48);
     const haloVertexShader = `
       varying vec3 vNormal;
       varying vec3 vViewPosition;
@@ -210,18 +214,18 @@ export function GlobeScene({
       void main() {
         vec3 normal = normalize(vNormal);
         vec3 viewDir = normalize(vViewPosition);
-        float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 3.2);
-        gl_FragColor = vec4(uGlowColor, fresnel * 0.45);
+        float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 3.0);
+        gl_FragColor = vec4(uGlowColor, fresnel * 0.25);
       }
     `;
     const haloMat = new THREE.ShaderMaterial({
       vertexShader: haloVertexShader,
       fragmentShader: haloFragmentShader,
       uniforms: {
-        uGlowColor: { value: new THREE.Color("#FFFFFF") },
+        uGlowColor: { value: isDark ? new THREE.Color("#38BDF8") : new THREE.Color("#FFFFFF") },
       },
       transparent: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       side: THREE.BackSide,
       depthWrite: false,
     });
@@ -259,14 +263,14 @@ export function GlobeScene({
 
       // Vertical pin stem & glowing head
       const stemMat = new THREE.MeshBasicMaterial({
-        color: "#FFFFFF",
+        color: isDark ? "#94A3B8" : "#475569",
       });
       const stem = new THREE.Mesh(pinStemGeo, stemMat);
       stem.position.y = 0.06;
       singlePinGroup.add(stem);
 
       const headMat = new THREE.MeshBasicMaterial({
-        color: "#FFFFFF",
+        color: "#2563EB",
       });
       const head = new THREE.Mesh(pinHeadGeo, headMat);
       head.position.y = 0.12;
@@ -274,7 +278,7 @@ export function GlobeScene({
 
       // Radar pulse ring on the surface
       const pulseRingMat = new THREE.MeshBasicMaterial({
-        color: "#FFFFFF",
+        color: "#3B82F6",
         transparent: true,
         opacity: 0.75,
         side: THREE.DoubleSide,
@@ -317,7 +321,7 @@ export function GlobeScene({
 
     const photonGeo = new THREE.SphereGeometry(0.025, 8, 8);
     const photonMat = new THREE.MeshBasicMaterial({
-      color: "#FFFFFF",
+      color: "#2563EB",
     });
 
     const jurMap = new Map<string, GlobeJurisdiction>(
@@ -342,9 +346,9 @@ export function GlobeScene({
       const arcGeo = new THREE.BufferGeometry().setFromPoints(curvePoints);
 
       const arcMat = new THREE.LineBasicMaterial({
-        color: "#FFFFFF",
+        color: isDark ? "#94A3B8" : "#64748B",
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.65,
         linewidth: 1,
       });
 
@@ -672,25 +676,20 @@ export function GlobeScene({
         className="w-full h-full block touch-none"
       />
 
-      {/* Interactive Controls Overlay Bar */}
-      <div className="absolute bottom-2 inset-x-0 flex items-center justify-between px-3 pointer-events-none">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-600 dark:text-slate-300 shadow-2xs pointer-events-auto">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-          <span>Drag to explore globe</span>
-        </div>
-
-        {activeJurisdictionId && (
+      {/* Interactive Controls Overlay: Reset button if active jurisdiction */}
+      {activeJurisdictionId && (
+        <div className="absolute bottom-2 right-3 pointer-events-none">
           <button
             type="button"
             onClick={handleReset}
-            className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-700/80 text-[10px] font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 shadow-2xs pointer-events-auto transition-colors"
+            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/10 text-[11px] font-medium text-slate-300 hover:text-white hover:border-white/20 shadow-sm pointer-events-auto transition-colors"
             title="Reset globe view"
           >
-            <RotateCcw className="w-2.5 h-2.5" />
+            <RotateCcw className="w-3 h-3" />
             <span>Reset</span>
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

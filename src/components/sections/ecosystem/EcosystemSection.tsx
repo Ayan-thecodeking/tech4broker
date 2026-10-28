@@ -25,9 +25,6 @@ export function EcosystemSection({
         className
       )}
     >
-      {/* 1. Soft Ambient Lilac/Pink and Blue Background Glow */}
-      <div className="ecosystem-section-ambient-glow" aria-hidden="true" />
-
       {/* 2. Main Content Container */}
       <Container className="relative z-10 flex flex-col items-center">
         {/* Eyebrow & Title */}
@@ -64,7 +61,7 @@ export function EcosystemSection({
             variant="outline"
             size="md"
             href={ecosystem.cta.href}
-            className="w-full max-w-[280px] sm:w-auto min-w-[163px] h-[40px] text-xs font-[number:var(--fw-medium)] tracking-[var(--ls-button)] uppercase shadow-xs gap-1.5"
+            className="w-full max-w-[280px] sm:w-auto min-w-[163px] h-[40px] px-6 text-sm font-medium shadow-xs gap-1.5"
           >
             <Calendar size={15} strokeWidth={2} className="shrink-0" />
             <span>{ecosystem.cta.label}</span>

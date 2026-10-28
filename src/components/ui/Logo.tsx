@@ -14,7 +14,7 @@ export function Logo({ className, href = "/", priority = true }: LogoProps) {
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center group select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] rounded-[var(--radius-sm)]",
+        "inline-flex items-center select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] rounded-[var(--radius-sm)]",
         className
       )}
       aria-label="tech4broker homepage"
@@ -26,7 +26,7 @@ export function Logo({ className, href = "/", priority = true }: LogoProps) {
         width={125}
         height={44}
         priority={priority}
-        className="brand-logo-dark h-8 sm:h-9 md:h-10 w-auto object-contain select-none transition-transform duration-[var(--transition-base)] group-hover:scale-105"
+        className="brand-logo-dark h-8 sm:h-9 md:h-10 w-auto object-contain select-none"
       />
 
       {/* Light variant logo: logo-light.png for dark theme backgrounds */}
@@ -36,7 +36,7 @@ export function Logo({ className, href = "/", priority = true }: LogoProps) {
         width={160}
         height={39}
         priority={priority}
-        className="brand-logo-light h-8 sm:h-9 md:h-10 w-auto object-contain select-none transition-transform duration-[var(--transition-base)] group-hover:scale-105"
+        className="brand-logo-light h-8 sm:h-9 md:h-10 w-auto object-contain select-none"
       />
     </Link>
   );

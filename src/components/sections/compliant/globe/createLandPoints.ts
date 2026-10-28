@@ -98,13 +98,15 @@ export function createWorldMapTexture(isDark: boolean): THREE.CanvasTexture {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const pathGenerator = geoPath(projection, ctx as any);
 
-    // 1. Draw delicate latitude/longitude graticule lines (subtle silver/slate)
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.25)";
-    ctx.lineWidth = 1.0;
-    ctx.beginPath();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    pathGenerator(geoGraticule()() as any);
-    ctx.stroke();
+    // 1. Draw delicate latitude/longitude graticule lines (only in dark mode)
+    if (isDark) {
+      ctx.strokeStyle = "rgba(100, 116, 139, 0.28)";
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      pathGenerator(geoGraticule()() as any);
+      ctx.stroke();
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const landFeature = topojson.feature(worldData, worldData.objects.land as any);
@@ -120,24 +122,24 @@ export function createWorldMapTexture(isDark: boolean): THREE.CanvasTexture {
       (a, b) => a !== b
     );
 
-    // 2. Draw continent land fills (soft whitish-silver fill)
-    ctx.fillStyle = "rgba(226, 232, 240, 0.50)";
+    // 2. Draw continent land fills (pure white in light mode)
+    ctx.fillStyle = isDark ? "rgba(30, 41, 59, 0.75)" : "#FFFFFF";
     ctx.beginPath();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pathGenerator(landFeature as any);
     ctx.fill();
 
-    // 3. Draw continent coastlines (clean refined outline)
-    ctx.strokeStyle = "rgba(100, 116, 139, 0.70)";
-    ctx.lineWidth = 1.8;
+    // 3. Draw continent coastlines (clean, refined silver-slate outline)
+    ctx.strokeStyle = isDark ? "rgba(148, 163, 184, 0.75)" : "rgba(180, 195, 220, 0.7)";
+    ctx.lineWidth = 1.1;
     ctx.beginPath();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pathGenerator(coastlinesMesh as any);
     ctx.stroke();
 
     // 4. Draw country borders (subtle delineation)
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.35)";
-    ctx.lineWidth = 0.8;
+    ctx.strokeStyle = isDark ? "rgba(100, 116, 139, 0.45)" : "rgba(215, 225, 235, 0.5)";
+    ctx.lineWidth = 0.7;
     ctx.beginPath();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pathGenerator(bordersMesh as any);

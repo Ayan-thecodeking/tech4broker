@@ -25,24 +25,23 @@ export function CompliantSection({
       id="compliant"
       aria-labelledby="compliant-heading"
       className={cn(
-        "relative w-full pt-12 sm:pt-14 lg:pt-16 pb-16 sm:pb-20 lg:pb-[80px] overflow-hidden",
+        "relative w-full pt-14 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-[90px] overflow-hidden bg-[#0b0f19] text-white",
         className
       )}
     >
-      {/* Background ambient glow: lilac top-right, soft blue bottom-right */}
-      <div className="compliant-ambient-glow" aria-hidden="true" />
-
       <Container className="relative z-10">
-        {/* Eyebrow 'COMPLIANT' Centered over the entire section */}
-        <div className="w-full flex justify-center mb-10 sm:mb-12 lg:mb-16">
-          <SectionHeading
-            id="compliant-heading"
-            eyebrow={compliant.eyebrow}
-            title=""
-            align="center"
-            eyebrowClassName="mb-0"
-          />
-        </div>
+        {/* Eyebrow 'COMPLIANT' Centered over the entire section (rendered only if provided) */}
+        {compliant.eyebrow && (
+          <div className="w-full flex justify-center mb-10 sm:mb-12 lg:mb-16">
+            <SectionHeading
+              id="compliant-heading"
+              eyebrow={compliant.eyebrow}
+              title=""
+              align="center"
+              eyebrowClassName="mb-0"
+            />
+          </div>
+        )}
 
         {/* Two-Column Grid: 3D Animated Globe on Left, Content & Pills on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 xl:gap-[120px]">
