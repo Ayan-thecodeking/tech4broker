@@ -1,0 +1,308 @@
+:root {
+  /* Brand colors */
+  --color-primary: #0A6CFF;
+  --color-primary-hover: #0857D1;
+  --color-accent: #00B4E6;
+  --color-navy: #0B3A7E;
+  --color-teal: #19C3B2;
+  --color-purple: #C45CF0;
+  --color-success: #22C55E;
+  --color-danger: #F472B6;
+
+  /* Text */
+  --color-text: #1F2937;
+  --color-text-muted: #4B5563;
+  --color-text-inverse: #FFFFFF;
+
+  /* Surfaces */
+  --color-bg: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-glass: rgba(255, 255, 255, 0.65);
+  --color-border: rgba(15, 23, 42, 0.08);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  --gradient-hero: linear-gradient(135deg, #BFE3FF 0%, #FFFFFF 50%, #F3D4FF 100%);
+  --gradient-section-fade: linear-gradient(180deg, transparent 0%, transparent 45%, var(--color-bg) 100%);
+
+  /* Typography */
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
+  --fs-hero: clamp(2.25rem, 5vw, 58px);
+  --lh-hero: clamp(2.5rem, 5.5vw, 64px);
+  --ls-hero: -0.25px;
+  --fs-eyebrow: clamp(1rem, 1.3vw, 1.5rem);
+  --fs-body-lg: clamp(0.9375rem, 1.1vw, 1.125rem);
+  --fs-body: clamp(0.875rem, 1vw, 1rem);
+  --fs-small: clamp(0.6875rem, 0.8vw, 0.75rem);
+  --fs-stat: clamp(2.5rem, 4.8vw, 4.5rem);
+  --fs-stat-label: clamp(0.875rem, 1.05vw, 1.0625rem);
+  --fs-award: clamp(1rem, 1.3vw, 1.625rem);
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-relaxed: 1.7;
+  --ls-button: 0.15em;
+
+  /* Section Padding */
+  --section-padding-top: clamp(3rem, 4.2vw, 5rem);
+  --section-padding-bottom: clamp(4rem, 5.3vw, 6.25rem);
+
+  /* Radius, shadow, spacing, layout */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-nav: 0 6px 24px rgba(15, 23, 42, 0.08);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  /* Layout & Rhythm Tokens */
+  --container-max: 1460px;
+  --container-padding-x: 16px;
+  --section-py: clamp(48px, 7vw, 100px);
+  --section-gap: clamp(24px, 4vw, 56px);
+  --announcement-height: 56px;
+  --navbar-height: 68px;
+
+  /* Motion */
+  --float-duration: 5s;
+  --transition-base: 200ms ease;
+
+  /* Trusted Section & Marquee Tokens */
+  --radius-xl: clamp(28px, 3.2vw, 60px);
+  --shadow-card-soft: 0 30px 60px rgba(120, 160, 230, 0.18);
+  --ls-eyebrow: 0.3em;
+  --fs-eyebrow-label: clamp(0.75rem, 0.9vw, 1rem);
+  --fs-section-title: clamp(1.75rem, 3.5vw, 3.5rem);
+  --color-glow-blue: #A8D4F5;
+  --gradient-trusted-glow: radial-gradient(circle at 100% 100%, var(--color-glow-blue) 0%, transparent 60%);
+  --logo-height: clamp(46px, 3.8vw, 52px);
+  --logo-opacity: 1;
+  --logo-filter: none;
+  --marquee-duration: 30s;
+  --round-duration: 12s;
+  --marquee-gap: clamp(2rem, 3.2vw, 3.5rem);
+  --marquee-fade: 8%;
+  --section-gap: clamp(3rem, 4.2vw, 5rem);
+
+  /* Integrated Section Tokens */
+  --fs-platform-label: clamp(0.9375rem, 1.1vw, 1.25rem);
+  --platform-img-height: 48px;
+  --platform-logo-height: 72px;
+  --platform-label-gap: clamp(1.25rem, 1.8vw, 2rem);
+  --platform-row-gap: clamp(2rem, 3.5vw, 4rem);
+  --platform-columns: 5;
+  --more-circle-size: 58px;
+  --color-glow-lilac: #F3D4FF;
+  --gradient-integrated-glow: radial-gradient(circle at 100% 0%, var(--color-glow-blue) 0%, transparent 45%), radial-gradient(circle at 100% 100%, var(--color-glow-lilac) 0%, transparent 55%);
+  --integrated-padding-top: clamp(2rem, 2.5vw, 2.5rem);
+  --integrated-padding-bottom: clamp(3.5rem, 4.2vw, 5rem);
+  --integrated-title-gap: clamp(3rem, 4.5vw, 5.3125rem);
+  --integrated-cta-gap: clamp(3rem, 4.5vw, 5.3125rem);
+
+  /* Compliant Section Tokens */
+  --globe-size: clamp(280px, 27vw, 520px);
+  --color-globe-base: #FFFFFF;
+  --color-globe-rim: #FFFFFF;
+  --color-globe-dot: #FFFFFF;
+  --color-pill-bg: #F1F1F7;
+  --fs-kicker: clamp(1.125rem, 1.3vw, 1.5rem);
+  --fs-section-hero: clamp(2rem, 3vw, 3.5rem);
+  --fs-body-md: clamp(1rem, 1.1vw, 1.3125rem);
+  --fs-pill: clamp(0.875rem, 0.85vw, 1rem);
+  --pill-height: 38px;
+  --pill-flag-size: 32px;
+  --gradient-compliant-glow: radial-gradient(circle at 100% 0%, var(--color-glow-lilac) 0%, transparent 40%), radial-gradient(circle at 100% 100%, var(--color-glow-blue) 0%, transparent 50%);
+
+  /* Payments Section Tokens */
+  --card-width-medium: min(1360px, calc(100% - 2rem));
+  --card-padding-x: clamp(1.5rem, 2.4vw, 2.8rem);
+  --color-glow-purple: #C9A8F5;
+  --more-circle-size-lg: 68px;
+    --payment-logo-w: 168px;   /* NEW: width of every logo box */
+  --payment-logo-h: 52px;    /* NEW: height of every logo box */
+  --gradient-payments-glow: radial-gradient(circle at 100% 0%, var(--color-glow-blue) 0%, transparent 45%), radial-gradient(circle at 100% 100%, var(--color-glow-purple) 0%, transparent 50%);
+  --gradient-payments-card-tint: linear-gradient(90deg, transparent 45%, rgba(168, 212, 245, 0.55) 80%, rgba(200, 175, 245, 0.6) 100%);
+
+  /* Support Section Tokens */
+  --container-narrow: 1280px;
+  --fs-feature-title: clamp(1.25rem, 1.5vw, 1.625rem);
+  --fs-feature-body: clamp(0.9375rem, 0.9vw, 1.0625rem);
+  --color-blob-pink: #FBE9F6;
+  --color-blob-blue: #E3EEFF;
+  --color-blob-teal: #D6F0F0;
+  --color-icon-pink: #E0457B;
+  --color-icon-blue: var(--color-primary);
+  --color-icon-teal: var(--color-teal);
+  --blob-width: 110px;
+  --blob-height: 180px;
+  --feature-icon-size: 110px;
+  --color-glow-periwinkle: #B9A8F0;
+  --color-glow-pink: #E7A8F8;
+  --gradient-support-glow: radial-gradient(circle at 100% 0%, var(--color-glow-periwinkle) 0%, transparent 50%), radial-gradient(circle at 100% 50%, var(--color-glow-pink) 0%, transparent 45%), radial-gradient(circle at 100% 100%, var(--color-glow-lilac) 0%, transparent 55%);
+
+  /* Customized Section Tokens */
+  --card-width-narrow: min(1360px, calc(100% - 2rem));
+  --fs-tab: clamp(0.875rem, 0.9vw, 1rem);
+  --fs-panel-heading: clamp(1.25rem, 1.35vw, 1.5rem);
+  --fs-panel-body: clamp(0.8125rem, 0.8vw, 0.9375rem);
+  --color-tab-bg: #F4F4F7;
+  --color-tab-border: #C9CAD1;
+  --color-surface-dark: #2A2A2E;
+  --shadow-float: 0 18px 40px rgba(15, 23, 42, 0.28);
+  --mockup-width: 720px;
+  --mockup-height: 440px;
+  --panel-min-height: 440px;
+  --gradient-customized-glow: radial-gradient(circle at 100% 0%, var(--color-glow-lilac) 0%, transparent 35%);
+
+  /* Ecosystem Section Tokens */
+  --diagram-width: 1080px;
+  --diagram-height: 600px;
+  --hub-size: 175px;
+  --hub-size-mobile: 120px;
+  --bubble-size: 48px;
+  --capsule-height: 58px;
+  --color-capsule-bg: #E9EDFB;
+  --color-capsule-border: #C9D6F5;
+  --color-ring: rgba(90, 166, 240, 0.45);
+  --color-line: rgba(127, 184, 240, 0.55);
+  --color-hub-glow: rgba(90, 170, 255, 0.45);
+  --ls-eyebrow-wide: 0.35em;
+  --fs-small-body: clamp(0.8125rem, 0.85vw, 0.9375rem);
+  --color-glow-pink: #E9A8FA;
+  --gradient-ecosystem-glow: radial-gradient(circle at 100% 45%, var(--color-glow-pink) 0%, transparent 40%), radial-gradient(circle at 100% 100%, var(--color-glow-blue) 0%, transparent 45%);
+
+  /* Key Features Section Tokens */
+  --card-width-compact: min(1360px, calc(100% - 2rem));
+  --kf-mockup-width: 720px;
+  --kf-mockup-height: 440px;
+  --kf-panel-min-height: 440px;
+  --color-badge-bg: #E4EEFF;
+  --color-surface-muted: #EFEFF3;
+  --color-cyan-bright: #19B5F5;
+  --color-glow-cyan: #6FD0F7;
+  --gradient-keyfeatures-glow: radial-gradient(circle at 100% 15%, var(--color-glow-cyan) 0%, transparent 45%), radial-gradient(circle at 100% 60%, var(--color-glow-blue) 0%, transparent 40%);
+  --gradient-keyfeatures-card-tint: linear-gradient(225deg, rgba(168, 212, 245, 0.6) 0%, transparent 45%);
+
+  /* Footer Section Tokens */
+  --color-footer-bg: #F3F3F3;
+  --color-text-muted-strong: #4A4A4A;
+  --color-text-muted: #5A5A5A;
+  --color-border-strong: rgba(0, 0, 0, 0.12);
+  --fs-footer-heading: clamp(0.9375rem, 0.85vw, 1rem);
+  --fs-footer-item: clamp(0.8125rem, 0.72vw, 0.8125rem);
+  --fs-footer-meta: clamp(0.75rem, 0.7vw, 0.8125rem);
+  --footer-margin-top: clamp(24px, 3vw, 40px);
+  --footer-padding-y: clamp(28px, 3vw, 40px);
+  --footer-grid-gap-x: clamp(24px, 3.5vw, 64px);
+  --footer-grid-gap-y: clamp(24px, 3vw, 50px);
+}
+
+/* Dark mode scaffolding */
+[data-theme="dark"] {
+  --color-bg: #0B1120;
+  --color-surface: #131E33;
+  --color-surface-glass: rgba(19, 30, 51, 0.75);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-text: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+  --gradient-hero: linear-gradient(135deg, #0d2146 0%, #0B1120 50%, #291238 100%);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-nav: 0 6px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card-soft: 0 30px 60px rgba(0, 0, 0, 0.45);
+  --color-glow-blue: #1e3a8a;
+  --color-glow-lilac: #581c87;
+  --gradient-integrated-glow: radial-gradient(circle at 100% 0%, var(--color-glow-blue) 0%, transparent 45%), radial-gradient(circle at 100% 100%, var(--color-glow-lilac) 0%, transparent 55%);
+  --color-globe-base: #1E1B4B;
+  --color-globe-rim: #312E81;
+  --color-globe-dot: #E0E7FF;
+  --color-pill-bg: rgba(30, 41, 59, 0.7);
+  --gradient-compliant-glow: radial-gradient(circle at 100% 0%, var(--color-glow-lilac) 0%, transparent 40%), radial-gradient(circle at 100% 100%, var(--color-glow-blue) 0%, transparent 50%);
+  --color-glow-purple: #4c1d95;
+  --gradient-payments-glow: radial-gradient(circle at 100% 0%, var(--color-glow-blue) 0%, transparent 45%), radial-gradient(circle at 100% 100%, var(--color-glow-purple) 0%, transparent 50%);
+  --gradient-payments-card-tint: linear-gradient(90deg, transparent 45%, rgba(30, 58, 138, 0.45) 80%, rgba(88, 28, 135, 0.5) 100%);
+  --color-blob-pink: rgba(244, 114, 182, 0.15);
+  --color-blob-blue: rgba(59, 130, 246, 0.15);
+  --color-blob-teal: rgba(20, 184, 166, 0.15);
+  --color-glow-periwinkle: #4338ca;
+  --color-glow-pink: #831843;
+  --gradient-support-glow: radial-gradient(circle at 100% 0%, var(--color-glow-periwinkle) 0%, transparent 50%), radial-gradient(circle at 100% 50%, var(--color-glow-pink) 0%, transparent 45%), radial-gradient(circle at 100% 100%, var(--color-glow-lilac) 0%, transparent 55%);
+  --color-tab-bg: rgba(30, 41, 59, 0.6);
+  --color-tab-border: rgba(255, 255, 255, 0.12);
+  --color-surface-dark: #1E2330;
+  --gradient-customized-glow: radial-gradient(circle at 100% 0%, var(--color-glow-lilac) 0%, transparent 35%);
+  --color-capsule-bg: rgba(30, 41, 59, 0.7);
+  --color-capsule-border: rgba(255, 255, 255, 0.15);
+  --color-ring: rgba(90, 166, 240, 0.3);
+  --color-line: rgba(127, 184, 240, 0.4);
+  --color-hub-glow: rgba(90, 170, 255, 0.3);
+  --gradient-ecosystem-glow: radial-gradient(circle at 100% 45%, rgba(131, 24, 67, 0.4) 0%, transparent 40%), radial-gradient(circle at 100% 100%, var(--color-glow-blue) 0%, transparent 45%);
+  --color-badge-bg: rgba(30, 58, 138, 0.35);
+  --color-surface-muted: #1E2330;
+  --color-cyan-bright: #0284c7;
+  --gradient-keyfeatures-glow: radial-gradient(circle at 100% 15%, rgba(14, 165, 233, 0.35) 0%, transparent 45%), radial-gradient(circle at 100% 60%, var(--color-glow-blue) 0%, transparent 40%);
+  --gradient-keyfeatures-card-tint: linear-gradient(225deg, rgba(30, 58, 138, 0.45) 0%, transparent 45%);
+  --color-footer-bg: #111827;
+  --color-text-muted-strong: #E5E7EB;
+  --color-text-muted: #9CA3AF;
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+}
+
+/* Container padding scaling across breakpoints */
+@media (min-width: 480px) {
+  :root {
+    --container-padding-x: 20px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --container-padding-x: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --container-padding-x: 48px;
+  }
+}
+
+/* Mobile global overrides (< 768px) */
+@media (max-width: 767px) {
+  :root {
+    --glow-strength: 0.35;
+    --announcement-height: 52px;
+    --navbar-height: 56px;
+    --blob-width: 90px;
+    --blob-height: 150px;
+    --feature-icon-size: 70px;
+    --platform-img-height: 36px;
+    --platform-logo-height: 54px;
+    --platform-row-gap: 24px;
+    --logo-height: 38px;
+    --marquee-duration: 22s;
+    --round-duration: 8s;
+    --marquee-gap: 28px;
+    --more-circle-size-lg: 52px;
+    --payment-logo-w: 124px;   /* NEW */
+    --payment-logo-h: 40px;    /* NEW */
+    --bubble-size: 44px;
+    --gradient-payments-card-tint: linear-gradient(90deg, transparent 45%, rgba(168, 212, 245, 0.25) 80%, rgba(200, 175, 245, 0.3) 100%);
+    --gradient-integrated-glow: radial-gradient(circle at 100% 0%, rgba(168, 212, 245, 0.35) 0%, transparent 60%);
+    --gradient-compliant-glow: radial-gradient(circle at 100% 0%, rgba(243, 212, 255, 0.35) 0%, transparent 55%);
+    --gradient-payments-glow: radial-gradient(circle at 100% 0%, rgba(168, 212, 245, 0.35) 0%, transparent 60%);
+    --gradient-support-glow: radial-gradient(circle at 100% 0%, rgba(185, 168, 240, 0.35) 0%, transparent 60%);
+    --gradient-customized-glow: radial-gradient(circle at 100% 0%, rgba(243, 212, 255, 0.35) 0%, transparent 50%);
+    --gradient-ecosystem-glow: radial-gradient(circle at 100% 25%, rgba(233, 168, 250, 0.35) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(168, 212, 245, 0.3) 0%, transparent 50%);
+    --gradient-keyfeatures-glow: radial-gradient(circle at 100% 15%, rgba(111, 208, 247, 0.35) 0%, transparent 55%), radial-gradient(circle at 100% 60%, rgba(168, 212, 245, 0.3) 0%, transparent 50%);
+    --gradient-keyfeatures-card-tint: linear-gradient(225deg, rgba(168, 212, 245, 0.3) 0%, transparent 50%);
+  }
+}
+
