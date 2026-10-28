@@ -55,12 +55,12 @@ export function IconBlob({
         className
       )}
     >
-      {/* Background shape layer: moves to the LEFT on hover */}
-      <div className="absolute inset-0 pointer-events-none transition-transform duration-300 ease-out group-hover:-translate-x-3">
-        {/* 1. Tall rounded pill blob: ~110px wide x ~180px tall, positioned slightly left of center */}
+      {/* Background shape layer */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* 1. Tall rounded pill blob */}
         <div
           className={cn(
-            "absolute -left-1 sm:-left-2 top-0 w-[var(--blob-width)] h-[var(--blob-height)] rounded-[999px] transition-all duration-300 group-hover:brightness-105",
+            "absolute -left-1 sm:-left-2 top-0 w-[var(--blob-width)] h-[var(--blob-height)] rounded-[999px]",
             currentTone.blobBg
           )}
         />
@@ -68,16 +68,16 @@ export function IconBlob({
         {/* 2. Overlapping circular ambient glow behind the icon offset toward the right */}
         <div
           className={cn(
-            "absolute left-6 top-6 w-[125px] sm:w-[130px] h-[125px] sm:h-[130px] rounded-full blur-xl transition-opacity duration-300 group-hover:opacity-95",
+            "absolute left-6 top-6 w-[125px] sm:w-[130px] h-[125px] sm:h-[130px] rounded-full blur-xl",
             currentTone.glowBg
           )}
         />
       </div>
 
-      {/* 3. The Icon in front: moves to the RIGHT on hover */}
+      {/* 3. The Icon in front */}
       <div
         className={cn(
-          "relative z-10 flex items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-3",
+          "relative z-10 flex items-center justify-center",
           currentTone.iconColor
         )}
         style={{

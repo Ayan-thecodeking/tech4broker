@@ -63,8 +63,11 @@ export function AppProviders({ children }: AppProvidersProps) {
     // 3. Disable lagSmoothing for tight sync with ScrollTrigger
     gsap.ticker.lagSmoothing(0);
 
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     return () => {
       gsap.ticker.remove(updateTicker);
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
       lenis.destroy();
     };
   }, []);

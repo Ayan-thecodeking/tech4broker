@@ -2,10 +2,10 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Handshake, Network, CheckCircle2, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
-import type { NavLinkItem, NavItemIconType } from "@/types/content";
+import type { NavLinkItem } from "@/types/content";
 
 export interface MobileMenuProps {
   isOpen: boolean;
@@ -13,22 +13,6 @@ export interface MobileMenuProps {
   navLinks: NavLinkItem[];
   ctaText: string;
   ctaUrl: string;
-}
-
-function NavItemIcon({ icon, color }: { icon?: NavItemIconType; color?: string }) {
-  if (!icon) return null;
-  const style = color ? { color } : undefined;
-
-  switch (icon) {
-    case "handshake":
-      return <Handshake className="w-5 h-5 shrink-0" style={style} aria-hidden="true" />;
-    case "network":
-      return <Network className="w-5 h-5 shrink-0" style={style} aria-hidden="true" />;
-    case "checkCircle":
-      return <CheckCircle2 className="w-5 h-5 shrink-0" style={style} aria-hidden="true" />;
-    default:
-      return null;
-  }
 }
 
 export function MobileMenu({
@@ -108,9 +92,8 @@ export function MobileMenu({
               key={item.label}
               href={item.href}
               onClick={onClose}
-              className="flex items-center gap-3.5 px-4 min-h-[48px] rounded-[var(--radius-sm)] text-[18px] font-[number:var(--fw-medium)] text-[var(--color-text)] hover:bg-blue-50/70 hover:text-[var(--color-primary)] active:bg-blue-100/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+              className="flex items-center px-4 min-h-[48px] rounded-[var(--radius-sm)] text-[18px] font-[number:var(--fw-medium)] text-[var(--color-text)] hover:bg-blue-50/70 hover:text-[var(--color-primary)] active:bg-blue-100/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
             >
-              <NavItemIcon icon={item.icon} color={item.iconColor} />
               <span>{item.label}</span>
             </Link>
           ))}
@@ -120,9 +103,9 @@ export function MobileMenu({
         <div className="mt-auto pt-6 border-t border-[var(--color-border)]">
           <Button
             variant="gradient"
-            size="lg"
+            size="md"
             href={ctaUrl}
-            className="w-full min-h-[48px] text-sm font-[number:var(--fw-bold)] tracking-[var(--ls-button)] uppercase shadow-[0_4px_18px_rgba(10,108,255,0.32)]"
+            className="w-full h-[40px] text-sm font-semibold shadow-[0_4px_18px_rgba(10,108,255,0.32)]"
             onClick={onClose}
           >
             {ctaText}

@@ -21,7 +21,7 @@ export function LogoBubble({
     return (
       <div
         className={cn(
-          "h-[var(--bubble-size)] w-[var(--bubble-size)] rounded-full bg-white flex items-center justify-center shrink-0 shadow-2xs select-none border border-[var(--color-border)]/60 transition-transform duration-200 hover:scale-105",
+          "h-[var(--bubble-size)] w-[var(--bubble-size)] rounded-full bg-white flex items-center justify-center shrink-0 shadow-2xs select-none border border-[var(--color-border)]/60",
           className
         )}
         aria-label={`${moreCount} more integrations available`}
@@ -38,7 +38,7 @@ export function LogoBubble({
     return (
       <div
         className={cn(
-          "h-[var(--bubble-size)] min-w-[var(--bubble-size)] px-3 rounded-[var(--radius-pill)] bg-white flex items-center justify-center shrink-0 shadow-2xs select-none border border-[var(--color-border)]/60 transition-transform duration-200 hover:scale-105",
+          "h-[var(--bubble-size)] min-w-[var(--bubble-size)] px-3 rounded-[var(--radius-pill)] bg-white flex items-center justify-center shrink-0 shadow-2xs select-none border border-[var(--color-border)]/60",
           className
         )}
       >
@@ -57,7 +57,7 @@ export function LogoBubble({
   return (
     <div
       className={cn(
-        "h-[var(--bubble-size)] min-w-[var(--bubble-size)] px-2.5 rounded-[var(--radius-pill)] bg-white/95 flex items-center justify-center shrink-0 shadow-2xs select-none border border-dashed border-[var(--color-border)] transition-transform duration-200 hover:scale-105",
+        "h-[var(--bubble-size)] min-w-[var(--bubble-size)] px-2.5 rounded-[var(--radius-pill)] bg-white/95 flex items-center justify-center shrink-0 shadow-2xs select-none border border-dashed border-[var(--color-border)]",
         className
       )}
       title={item?.name || "Integration Partner"}

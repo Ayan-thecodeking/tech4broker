@@ -8,6 +8,8 @@ import { SupportSection } from "@/components/sections/support/SupportSection";
 import { CustomizedSection } from "@/components/sections/customized/CustomizedSection";
 import { EcosystemSection } from "@/components/sections/ecosystem/EcosystemSection";
 import { KeyFeaturesSection } from "@/components/sections/key-features/KeyFeaturesSection";
+import { BlogSection } from "@/components/sections/blog/BlogSection";
+import { FaqSection } from "@/components/sections/faq/FaqSection";
 import { siteConfig } from "@/config/site";
 import {
   heroContent,
@@ -20,6 +22,7 @@ import {
   ecosystemContent,
   keyFeaturesContent,
 } from "@/content/home";
+import { blogContent } from "@/content/blog";
 
 export default function HomePage() {
   return (
@@ -65,6 +68,12 @@ export default function HomePage() {
 
         {/* Key Features Section with 4-Tab Switcher & Layered Acquisition Mockup */}
         <KeyFeaturesSection keyFeatures={keyFeaturesContent} />
+
+        {/* Blog & Insights Section with 3-in-a-row cards and start/end navigation */}
+        <BlogSection data={blogContent} />
+
+        {/* FAQ Section matching verified-tips */}
+        <FaqSection />
       </main>
     </div>
   );

@@ -15,33 +15,20 @@ export function GlobeFallback({ className }: GlobeFallbackProps) {
       )}
       style={{
         background:
-          "radial-gradient(circle at 50% 30%, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%)",
+          "radial-gradient(circle at 45% 35%, #141d32 0%, #0f172a 65%, #0b0f19 100%)",
         boxShadow:
-          "0 20px 50px rgba(100, 116, 139, 0.16), inset 0 0 35px rgba(255, 255, 255, 0.9)",
+          "0 20px 45px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(56, 189, 248, 0.2), inset 0 0 30px rgba(11, 15, 25, 0.95)",
       }}
     >
-      {/* Graticule grid rings */}
-      <div
-        className="absolute inset-0 rounded-full border border-slate-300/40"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(148, 163, 184, 0.18) 32px, rgba(148, 163, 184, 0.18) 33px)",
-        }}
-      />
-      <div
-        className="absolute inset-0 rounded-full border border-slate-300/40"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(148, 163, 184, 0.18) 32px, rgba(148, 163, 184, 0.18) 33px)",
-        }}
-      />
+      {/* Outer border ring */}
+      <div className="absolute inset-0 rounded-full border border-sky-400/20 pointer-events-none" />
 
       {/* Subtle dotted matrix continent pattern */}
       <div
-        className="absolute inset-0 rounded-full opacity-70 pointer-events-none"
+        className="absolute inset-0 rounded-full opacity-60 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(100, 116, 139, 0.5) 1.5px, transparent 1.5px)",
+            "radial-gradient(rgba(148, 163, 184, 0.75) 1.5px, transparent 1.5px)",
           backgroundSize: "14px 14px",
           maskImage: "radial-gradient(circle, black 65%, transparent 95%)",
           WebkitMaskImage: "radial-gradient(circle, black 65%, transparent 95%)",
@@ -49,9 +36,9 @@ export function GlobeFallback({ className }: GlobeFallbackProps) {
       />
 
       {/* Simulated jurisdiction beacon markers */}
-      <div className="absolute top-[32%] left-[48%] w-2.5 h-2.5 rounded-full bg-blue-600 shadow-md ring-2 ring-white animate-pulse" />
-      <div className="absolute top-[42%] left-[55%] w-2.5 h-2.5 rounded-full bg-blue-600 shadow-md ring-2 ring-white animate-pulse" />
-      <div className="absolute bottom-[35%] right-[28%] w-2.5 h-2.5 rounded-full bg-blue-600 shadow-md ring-2 ring-white animate-pulse" />
+      <div className="absolute top-[32%] left-[48%] w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] ring-2 ring-blue-400 animate-pulse" />
+      <div className="absolute top-[42%] left-[55%] w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] ring-2 ring-blue-400 animate-pulse" />
+      <div className="absolute bottom-[35%] right-[28%] w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] ring-2 ring-blue-400 animate-pulse" />
     </div>
   );
 }

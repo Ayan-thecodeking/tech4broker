@@ -56,7 +56,7 @@ export function LogoItem({ logo, className }: LogoItemProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={logo.name}
-        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] rounded-[var(--radius-sm)] inline-flex shrink-0 transition-transform hover:scale-105 active:scale-95"
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] rounded-[var(--radius-sm)] inline-flex shrink-0"
       >
         {content}
       </a>

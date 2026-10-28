@@ -29,14 +29,14 @@ export function RollingButton({
 
   const variantClasses =
     variant === "primary"
-      ? "bg-[#EF5A48] text-white shadow-[0_4px_14px_rgba(239,90,72,0.25)] hover:bg-opacity-90 px-6 py-2.5"
+      ? "bg-[#EF5A48] text-white shadow-[0_4px_14px_rgba(239,90,72,0.25)] hover:bg-opacity-90 px-6 h-[40px]"
       : variant === "secondary"
-      ? "bg-transparent border-2 border-[#1E2229] text-[#1E2229] hover:bg-[#1E2229] hover:text-white px-7 py-3.5"
+      ? "bg-transparent border-2 border-[#1E2229] text-[#1E2229] hover:bg-[#1E2229] hover:text-white px-7 h-[40px]"
       : variant === "white"
-      ? "bg-white text-[#1E2229] hover:bg-gray-50 px-7 py-3.5"
+      ? "bg-white text-[#1E2229] hover:bg-gray-50 px-7 h-[40px]"
       : variant === "outline-white"
-      ? "border-2 bg-white/60 backdrop-blur-md hover:bg-white/90 border-white text-[#1E2229] py-3 px-6 shadow-[0_4px_14px_rgba(0,0,0,0.05)]"
-      : "border-2 bg-[#1e66ec] border-[#1e66ec] text-white py-3 px-6 shadow-[0_4px_14px_rgba(30,102,236,0.25)] hover:bg-[#1855c7] hover:border-[#1855c7]";
+      ? "border-2 bg-white/60 backdrop-blur-md hover:bg-white/90 border-white text-[#1E2229] h-[40px] px-6 shadow-[0_4px_14px_rgba(0,0,0,0.05)]"
+      : "border-2 bg-[#1e66ec] border-[#1e66ec] text-white h-[40px] px-6 shadow-[0_4px_14px_rgba(30,102,236,0.25)] hover:bg-[#1855c7] hover:border-[#1855c7]";
 
   const content = (
     <span className="relative block overflow-hidden leading-tight">

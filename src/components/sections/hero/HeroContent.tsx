@@ -62,11 +62,11 @@ export function HeroContent({
       <div className="mt-5 sm:mt-8 w-full flex justify-center lg:justify-start">
         <Button
           variant="gradient"
-          size="lg"
+          size="md"
           href={ctaButtonUrl}
-          className="shadow-[0_8px_25px_rgba(10,108,255,0.35)] hover:shadow-[0_12px_30px_rgba(10,108,255,0.48)] px-8 py-4 w-full sm:w-auto max-w-[320px] justify-center"
+          className="shadow-[0_8px_25px_rgba(10,108,255,0.35)] hover:shadow-[0_12px_30px_rgba(10,108,255,0.48)] px-8 h-[40px] text-sm font-semibold w-full sm:w-auto max-w-[320px] justify-center"
         >
-          <Calendar className="w-5 h-5 shrink-0" aria-hidden="true" />
+          <Calendar className="w-4 h-4 shrink-0" aria-hidden="true" />
           <span>{ctaButtonText}</span>
         </Button>
       </div>

@@ -22,9 +22,6 @@ export function SupportSection({ support, className }: SupportSectionProps) {
         className
       )}
     >
-      {/* Background ambient glow: periwinkle top, vivid pink-lilac edge, soft lilac bottom */}
-      <div className="support-section-ambient-glow" aria-hidden="true" />
-
       <Container className="relative z-10 max-w-[var(--container-narrow)] flex flex-col items-center">
         {/* Eyebrow 'SUPPORT' + Section Title */}
         <SectionHeading
@@ -41,13 +38,13 @@ export function SupportSection({ support, className }: SupportSectionProps) {
           <SupportGrid features={support.features} />
         </div>
 
-        {/* Centered CTA: BOOK A DEMO with Calendar Icon */}
+        {/* Centered CTA: Book a demo with Calendar Icon */}
         <div className="mt-10 sm:mt-12 lg:mt-[50px] flex justify-center w-full px-4">
           <Button
             variant="gradient"
             size="md"
             href={support.cta.href}
-            className="w-full max-w-[280px] sm:w-auto sm:min-w-[190px] h-[48px] px-6 text-xs sm:text-sm font-bold tracking-[var(--ls-button)] shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
+            className="w-full max-w-[280px] sm:w-auto sm:min-w-[190px] h-[40px] px-6 text-sm font-semibold shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
           >
             <Calendar className="w-4 h-4 mr-1 shrink-0" aria-hidden="true" />
             <span>{support.cta.label}</span>

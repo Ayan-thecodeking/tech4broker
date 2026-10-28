@@ -54,7 +54,7 @@ export function Hero({ content, foundedYear }: HeroProps) {
           <div className="flex flex-wrap justify-center gap-4 mt-8 sm:mt-10 mb-6">
             <RollingButton
               variant="outline-white"
-              text={content.ctaButtonText || "BOOK A DEMO"}
+              text={content.ctaButtonText || "Book a demo"}
               href={content.ctaButtonUrl || "#demo"}
             />
             <RollingButton

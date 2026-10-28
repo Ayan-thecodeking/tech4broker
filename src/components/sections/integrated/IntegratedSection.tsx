@@ -25,9 +25,6 @@ export function IntegratedSection({
         className
       )}
     >
-      {/* Background ambient glow: bleeding from top-right down to lilac at bottom-right */}
-      <div className="integrated-ambient-glow" aria-hidden="true" />
-
       <Container className="relative z-10 flex flex-col items-center">
         {/* Eyebrow + Section Title */}
         <SectionHeading
@@ -44,15 +41,15 @@ export function IntegratedSection({
           <PlatformGrid platforms={integrated.platforms} />
         </div>
 
-        {/* CTA Button: BOOK A DEMO with Calendar Icon */}
+        {/* CTA Button: Book a demo with Calendar Icon */}
         <div className="mt-[var(--integrated-cta-gap)] flex justify-center w-full px-4">
           <Button
             variant="gradient"
-            size="lg"
+            size="md"
             href={integrated.cta.href}
-            className="w-full max-w-[280px] sm:w-auto sm:min-w-[237px] h-[52px] sm:h-[60px] text-xs sm:text-sm font-bold tracking-[var(--ls-button)] shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
+            className="w-full max-w-[280px] sm:w-auto sm:min-w-[200px] h-[40px] px-6 text-sm font-semibold shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
           >
-            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-1 shrink-0" aria-hidden="true" />
+            <Calendar className="w-4 h-4 mr-1 shrink-0" aria-hidden="true" />
             <span>{integrated.cta.label}</span>
           </Button>
         </div>

@@ -18,7 +18,7 @@ export function PlatformItem({ platform, className }: PlatformItemProps) {
       )}
     >
       {/* Logo Slot Area */}
-      <div className="relative flex items-center justify-center h-[var(--platform-logo-height)] max-h-[var(--platform-logo-height)] shrink-0 transition-transform duration-[var(--transition-base)] group-hover:scale-105">
+      <div className="relative flex items-center justify-center h-[var(--platform-logo-height)] max-h-[var(--platform-logo-height)] shrink-0">
         {platform.logo && (
     <Image
       src={platform.logo}

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 import { CrmDashboardMockup } from "./mockups/CrmDashboardMockup";
 import { MockupPlaceholder } from "./mockups/MockupPlaceholder";
 import { cn } from "@/lib/cn";
@@ -32,78 +33,70 @@ export function CustomizedPanel({
   return (
     <div
       className={cn(
-        "w-full min-h-[380px] sm:min-h-[420px] lg:min-h-[var(--panel-min-height)] flex flex-col lg:flex-row items-center lg:items-center justify-between gap-10 lg:gap-12 xl:gap-16",
+        "w-full max-w-6xl mx-auto min-h-[380px] sm:min-h-[420px] lg:min-h-[var(--panel-min-height)] flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-10 xl:gap-12",
         className
       )}
     >
       {/* =========================================================================
           LEFT COLUMN: Heading + Bullets with Tick Icons + Prev/Next Navigation
           ========================================================================= */}
-      <div className="w-full lg:w-[440px] xl:w-[480px] shrink-0 flex flex-col text-left">
-        <h3 className="text-[20px] sm:text-[23px] lg:text-[26px] font-[number:var(--fw-semibold)] text-[var(--color-text)] leading-[1.25] tracking-tight max-w-[480px]">
+      <div className="w-full lg:w-[440px] xl:w-[460px] shrink-0 flex flex-col text-left">
+        <h3 className="text-[20px] sm:text-[23px] lg:text-[26px] font-[number:var(--fw-semibold)] text-white leading-[1.25] tracking-tight max-w-[480px]">
           {tab.heading}
         </h3>
 
         {/* Bullets with Tick Icon */}
-        <ul className="mt-6 sm:mt-7 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] text-[var(--color-text)] leading-relaxed max-w-[480px]">
+        <ul className="mt-6 sm:mt-7 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] leading-relaxed max-w-[480px]">
           {tab.bullets.map((bullet) => (
             <li key={bullet} className="flex items-start gap-3">
-              <span className="w-5 h-5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center shrink-0 mt-0.5">
+              <span className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
                 <Check className="w-3.5 h-3.5" strokeWidth={3} />
               </span>
-              <span className="text-[var(--color-text)]">{bullet}</span>
+              <span className="text-slate-300">{bullet}</span>
             </li>
           ))}
         </ul>
 
-        {/* Previous and Next Navigation Buttons below the points */}
-        <div className="mt-8 sm:mt-10 flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={onPrev}
-              aria-label="Previous feature"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[var(--color-border)] bg-white hover:bg-[var(--color-primary)]/5 hover:border-[var(--color-primary)]/40 text-[var(--color-text)] hover:text-[var(--color-primary)] shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-95"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              onClick={onNext}
-              aria-label="Next feature"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[var(--color-border)] bg-white hover:bg-[var(--color-primary)]/5 hover:border-[var(--color-primary)]/40 text-[var(--color-text)] hover:text-[var(--color-primary)] shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-95"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Book a demo button below the content */}
+        <div className="mt-7 sm:mt-8">
+          <Button
+            variant="gradient"
+            size="md"
+            href="/book-a-demo"
+            className="w-full sm:w-auto sm:min-w-[190px] h-[40px] px-6 text-sm font-semibold shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
+          >
+            <Calendar className="w-4 h-4 mr-1 shrink-0" aria-hidden="true" />
+            <span>Book a demo</span>
+          </Button>
+        </div>
 
-          {items && items.length > 1 && (
-            <div className="flex items-center gap-1.5 ml-1">
-              {items.map((item, idx) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => onSelectIndex?.(idx)}
-                  aria-label={`Go to feature ${idx + 1}`}
-                  className={cn(
-                    "h-2 rounded-full transition-all duration-300 cursor-pointer",
-                    idx === currentIndex
-                      ? "w-6 bg-[var(--color-primary)]"
-                      : "w-2 bg-slate-300 hover:bg-slate-400"
-                  )}
-                />
-              ))}
-            </div>
-          )}
+        {/* Previous and Next Navigation Buttons below the Book a demo button */}
+        <div className="mt-5 sm:mt-6 flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={onPrev}
+            aria-label="Previous feature"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/15 bg-white/[0.08] hover:bg-white/[0.18] hover:border-white/30 text-white shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-95"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={onNext}
+            aria-label="Next feature"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/15 bg-white/[0.08] hover:bg-white/[0.18] hover:border-white/30 text-white shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-95"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
 
       {/* =========================================================================
           RIGHT COLUMN: Visual Mockup (Expanded to ~740px max)
           ========================================================================= */}
-      <div className="w-full lg:flex-1 flex items-center justify-center max-w-[760px]">
+      <div className="w-full lg:flex-1 flex items-center justify-center max-w-[620px]">
         {tab.visual.type === "image" && tab.visual.src ? (
-          <div className="w-full max-w-[740px] flex items-center justify-center">
+          <div className="w-full flex items-center justify-center">
             <Image
               src={tab.visual.src}
               alt={tab.visual.alt || tab.heading}

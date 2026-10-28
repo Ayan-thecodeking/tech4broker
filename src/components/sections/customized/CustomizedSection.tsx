@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Calendar } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Button } from "@/components/ui/Button";
 import { CustomizedTabs } from "./CustomizedTabs";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { cn } from "@/lib/cn";
@@ -56,13 +54,10 @@ export function CustomizedSection({
       id="customized"
       aria-labelledby="customized-title"
       className={cn(
-        "relative w-full py-16 sm:py-20 lg:py-[80px] overflow-hidden",
+        "relative w-full py-16 sm:py-20 lg:py-[90px] overflow-hidden bg-[#0b0f19] text-white",
         className
       )}
     >
-      {/* Lilac ambient glow outside at top-right */}
-      <div className="customized-ambient-glow" aria-hidden="true" />
-
       <Container className="relative z-10 flex flex-col items-center">
         {/* Eyebrow + Section Title */}
         <SectionHeading
@@ -71,25 +66,13 @@ export function CustomizedSection({
           title={customized.title}
           align="center"
           titleAs="h2"
+          titleClassName="text-white"
           className="w-full max-w-4xl customized-anim-item"
         />
 
-        {/* Feature Showcase: Points with Ticks & Prev/Next on Left, Mockup on Right */}
+        {/* Feature Showcase: Points with Ticks, CTA, & Prev/Next on Left, Mockup on Right */}
         <div className="customized-anim-item w-full mt-10 sm:mt-14 lg:mt-16">
           <CustomizedTabs data={customized} />
-        </div>
-
-        {/* Centered CTA Button: BOOK A DEMO */}
-        <div className="customized-anim-item mt-12 sm:mt-16 lg:mt-20 flex justify-center w-full px-4">
-          <Button
-            variant="gradient"
-            size="lg"
-            href={customized.cta.href}
-            className="w-full max-w-[280px] sm:w-auto sm:min-w-[237px] h-[52px] sm:h-[60px] text-xs sm:text-sm font-bold tracking-[var(--ls-button)] shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
-          >
-            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-1 shrink-0" aria-hidden="true" />
-            <span>{customized.cta.label}</span>
-          </Button>
         </div>
       </Container>
     </section>

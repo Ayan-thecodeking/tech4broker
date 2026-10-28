@@ -34,12 +34,16 @@ export const siteConfig: SiteConfig = {
       iconColor: "var(--color-teal)",
     },
     {
+      label: "Blog",
+      href: "#blog",
+    },
+    {
       label: "Contact",
       href: "#contact",
     },
   ],
   cta: {
-    bookDemo: "BOOK A DEMO",
+    bookDemo: "Book a demo",
     bookDemoUrl: "#demo",
   },
 };

@@ -27,7 +27,7 @@ function PaymentLogoItem({
 }) {
   const content = provider.logo ? (
     <div
-      className="relative shrink-0 transition-transform duration-[var(--transition-base)] group-hover:scale-105"
+      className="relative shrink-0"
       style={{
         width: "var(--payment-logo-w, 168px)",
         height: "var(--payment-logo-h, 52px)",
@@ -45,7 +45,7 @@ function PaymentLogoItem({
     </div>
   ) : (
     <div
-      className="flex shrink-0 select-none items-center justify-center rounded-[var(--radius-sm)] border border-dashed border-[var(--color-border)] bg-slate-50/70 px-3 transition-all duration-[var(--transition-base)] group-hover:-translate-y-1 group-hover:border-[var(--color-primary)]"
+      className="flex shrink-0 select-none items-center justify-center rounded-[var(--radius-sm)] border border-dashed border-[var(--color-border)] bg-slate-50/70 px-3"
       style={{
         width: "var(--payment-logo-w, 168px)",
         height: "var(--payment-logo-h, 52px)",

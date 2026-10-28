@@ -23,7 +23,7 @@
   /* Gradients */
   --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   --gradient-hero: linear-gradient(135deg, #BFE3FF 0%, #FFFFFF 50%, #F3D4FF 100%);
-  --gradient-section-fade: linear-gradient(180deg, transparent 0%, transparent 45%, var(--color-bg) 100%);
+  --gradient-section-fade: none;
 
   /* Typography */
   --font-sans: var(--font-poppins), system-ui, sans-serif;
@@ -112,7 +112,7 @@
   /* Compliant Section Tokens */
   --globe-size: clamp(280px, 27vw, 520px);
   --color-globe-base: #FFFFFF;
-  --color-globe-rim: #FFFFFF;
+  --color-globe-rim: #E2E8F0;
   --color-globe-dot: #FFFFFF;
   --color-pill-bg: #F1F1F7;
   --fs-kicker: clamp(1.125rem, 1.3vw, 1.5rem);
@@ -194,7 +194,7 @@
   --gradient-keyfeatures-card-tint: linear-gradient(225deg, rgba(168, 212, 245, 0.6) 0%, transparent 45%);
 
   /* Footer Section Tokens */
-  --color-footer-bg: #F3F3F3;
+  --color-footer-bg: #FFFFFF;
   --color-text-muted-strong: #4A4A4A;
   --color-text-muted: #5A5A5A;
   --color-border-strong: rgba(0, 0, 0, 0.12);
