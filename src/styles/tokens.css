@@ -271,7 +271,7 @@
 @media (min-width: 1024px) {
   :root {
     --container-padding-x: 48px;
-    --globe-size: clamp(700px, 54vw, 960px);
+    --globe-size: clamp(880px, 68vw, 1150px);
   }
 }
 

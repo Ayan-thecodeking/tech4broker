@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useCallback } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { RotateCcw } from "lucide-react";
+import { cn } from "@/lib/cn";
 import {
   createLandPoints,
   createWorldMapTexture,
@@ -65,7 +66,8 @@ export function GlobeScene({
     const height = container.clientHeight || 510;
 
     const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
-    camera.position.set(0, 0, 6.7);
+    const camZ = isMobile ? 6.7 : 5.8;
+    camera.position.set(0, 0, camZ);
 
     let renderer: THREE.WebGLRenderer;
     try {
@@ -488,7 +490,7 @@ export function GlobeScene({
     const focusJurisdiction = (lat: number, lon: number) => {
       lastInteractionTime = Date.now() + 5000; // prevent auto-rotation override
       const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
-      const desktopOffset = isDesktop ? THREE.MathUtils.degToRad(32) : 0;
+      const desktopOffset = isDesktop ? THREE.MathUtils.degToRad(18) : 0;
       const targetY = -lon * (Math.PI / 180) + desktopOffset;
       const targetX = THREE.MathUtils.clamp(
         (lat * 0.75) * (Math.PI / 180),
@@ -511,7 +513,7 @@ export function GlobeScene({
     const resetView = () => {
       lastInteractionTime = Date.now();
       const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
-      const desktopOffset = isDesktop ? THREE.MathUtils.degToRad(32) : 0;
+      const desktopOffset = isDesktop ? THREE.MathUtils.degToRad(18) : 0;
       gsap.to(globeGroup.rotation, {
         y: desktopOffset,
         x: 0,
@@ -667,7 +669,7 @@ export function GlobeScene({
   return (
     <div
       ref={containerRef}
-      className={`relative select-none ${className || ""}`}
+      className={cn("relative select-none", className)}
       style={{
         width: "var(--globe-size)",
         height: "var(--globe-size)",

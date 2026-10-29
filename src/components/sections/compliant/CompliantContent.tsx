@@ -89,7 +89,7 @@ export function CompliantContent({
     <div
       ref={containerRef}
       className={cn(
-        "flex flex-col items-center text-center lg:items-start lg:text-left max-w-[620px] w-full",
+        "flex flex-col items-center text-center lg:items-start lg:text-left max-w-2xl xl:max-w-3xl w-full",
         className
       )}
     >
@@ -104,7 +104,7 @@ export function CompliantContent({
 
       {/* 2. Main Title */}
       <div className={cn("animate-compliant-text", kickerText && "mt-5 sm:mt-8 lg:mt-12")}>
-        <h2 className="text-[length:var(--fs-section-title)] font-[number:var(--fw-bold)] leading-[1.15] text-white tracking-tight max-w-[560px]">
+        <h2 className="text-[length:var(--fs-section-title)] font-[number:var(--fw-bold)] leading-[1.15] text-white tracking-tight max-w-2xl xl:max-w-3xl">
           <span className="block">Keeping You</span>
           <span className="block">Compliant Wherever</span>
           <span className="block">You Are Regulated</span>
@@ -113,7 +113,7 @@ export function CompliantContent({
 
       {/* 3. Description */}
       <div className="animate-compliant-text mt-5 sm:mt-8 lg:mt-12">
-        <p className="text-[14px] sm:text-[15px] lg:text-[length:var(--fs-body-md)] font-[number:var(--fw-regular)] leading-[1.4] text-slate-300 max-w-[580px]">
+        <p className="text-[14px] sm:text-[15px] lg:text-[length:var(--fs-body-md)] font-[number:var(--fw-regular)] leading-[1.4] text-slate-300 max-w-2xl xl:max-w-3xl">
           {content.description}
         </p>
       </div>
@@ -129,7 +129,7 @@ export function CompliantContent({
         />
       </div>
 
-     
+    
     </div>
   );
 }

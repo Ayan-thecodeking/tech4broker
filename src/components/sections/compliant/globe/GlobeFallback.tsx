@@ -10,7 +10,7 @@ export function GlobeFallback({ className }: GlobeFallbackProps) {
     <div
       aria-label="3D Globe loading preview"
       className={cn(
-        "relative w-[var(--globe-size)] h-[var(--globe-size)] aspect-square rounded-full flex items-center justify-center select-none overflow-hidden",
+        "relative w-[var(--globe-size)] h-[var(--globe-size)] lg:w-full lg:h-full aspect-square rounded-full flex items-center justify-center select-none overflow-hidden",
         className
       )}
       style={{

@@ -25,42 +25,46 @@ export function CompliantSection({
       id="compliant"
       aria-labelledby="compliant-heading"
       className={cn(
-        "relative w-full pt-14 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-[90px] overflow-hidden bg-[#0b0f19] text-white",
+        "relative w-full py-16 sm:py-20 lg:py-0 lg:h-auto lg:aspect-[16/9] flex items-center overflow-hidden bg-[#0b0f19] text-white",
         className
       )}
     >
-      {/* Eyebrow 'COMPLIANT' Centered over the entire section (rendered only if provided) */}
-      {compliant.eyebrow && (
-        <Container className="relative z-10 mb-10 sm:mb-12 lg:mb-16">
-          <SectionHeading
-            id="compliant-heading"
-            eyebrow={compliant.eyebrow}
-            title=""
-            align="center"
-            eyebrowClassName="mb-0"
-          />
-        </Container>
-      )}
+      <Container className="relative lg:static z-10 w-full">
+        {/* Eyebrow 'COMPLIANT' Centered over the entire section (rendered only if provided) */}
+        {compliant.eyebrow && (
+          <div className="w-full flex justify-center mb-10 sm:mb-12 lg:mb-16">
+            <SectionHeading
+              id="compliant-heading"
+              eyebrow={compliant.eyebrow}
+              title=""
+              align="center"
+              eyebrowClassName="mb-0"
+            />
+          </div>
+        )}
 
-      {/* Main Content Area: Snug spacing between globe and content on desktop */}
-      <div className="relative w-full flex flex-col lg:flex-row items-center lg:min-h-[640px] xl:min-h-[720px]">
-        {/* Left Column: On desktop, stuck to extreme left edge showing half; on mobile, centered */}
-        <div className="flex justify-center items-center w-full lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2 lg:w-auto lg:h-auto z-10 pointer-events-auto mb-10 lg:mb-0">
-          <GlobeCanvas
-            activeJurisdictionId={activeJurisdictionId}
-            onSelectJurisdiction={setActiveJurisdictionId}
-          />
-        </div>
+        {/* 50 / 50 Responsive Grid: Left 50% for Globe, Right 50% for Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-0 w-full">
+          {/* Left Column (50% area): Oversized globe bleeding from top, bottom, and left */}
+          <div className="flex justify-center items-center w-full">
+            <div className="flex justify-center items-center w-full lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 lg:-translate-x-[38%] lg:w-auto lg:h-auto z-10 pointer-events-auto">
+              <GlobeCanvas
+                activeJurisdictionId={activeJurisdictionId}
+                onSelectJurisdiction={setActiveJurisdictionId}
+              />
+            </div>
+          </div>
 
-        {/* Right / Copy Column: Positioned snug right beside the half globe on desktop, centered on mobile */}
-        <div className="w-full px-[var(--container-padding-x)] lg:px-0 lg:pl-[calc(var(--globe-size)/2+32px)] xl:pl-[calc(var(--globe-size)/2+48px)] z-20 flex justify-center lg:justify-start">
-          <CompliantContent
-            content={compliant}
-            activeJurisdictionId={activeJurisdictionId}
-            onSelectJurisdiction={setActiveJurisdictionId}
-          />
+          {/* Right Column (50% area): Copy, Jurisdictions & CTA filling the right half */}
+          <div className="flex justify-center lg:justify-start w-full z-20">
+            <CompliantContent
+              content={compliant}
+              activeJurisdictionId={activeJurisdictionId}
+              onSelectJurisdiction={setActiveJurisdictionId}
+            />
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

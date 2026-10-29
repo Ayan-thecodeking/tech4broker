@@ -24,7 +24,7 @@ export function JurisdictionPills({
     <ul
       role="list"
       className={cn(
-        "flex flex-wrap items-center justify-center lg:justify-start gap-x-2 sm:gap-x-3 gap-y-2.5 list-none m-0 p-0 max-w-[620px]",
+        "flex flex-wrap items-center justify-center lg:justify-start gap-x-2 sm:gap-x-3 gap-y-2.5 list-none m-0 p-0 w-full",
         className
       )}
     >
