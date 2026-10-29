@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Calendar, Check, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { CrmDashboardMockup } from "./mockups/CrmDashboardMockup";
 import { MockupPlaceholder } from "./mockups/MockupPlaceholder";
 import { cn } from "@/lib/cn";
@@ -57,21 +56,8 @@ export function CustomizedPanel({
           ))}
         </ul>
 
-        {/* Book a demo button below the content */}
-        <div className="mt-7 sm:mt-8">
-          <Button
-            variant="gradient"
-            size="md"
-            href="/book-a-demo"
-            className="w-full sm:w-auto sm:min-w-[190px] h-[40px] px-6 text-sm font-semibold shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
-          >
-            <Calendar className="w-4 h-4 mr-1 shrink-0" aria-hidden="true" />
-            <span>Book a demo</span>
-          </Button>
-        </div>
-
-        {/* Previous and Next Navigation Buttons below the Book a demo button */}
-        <div className="mt-5 sm:mt-6 flex items-center gap-2.5">
+        {/* Previous and Next Navigation Buttons */}
+        <div className="mt-7 sm:mt-8 flex items-center gap-2.5">
           <button
             type="button"
             onClick={onPrev}

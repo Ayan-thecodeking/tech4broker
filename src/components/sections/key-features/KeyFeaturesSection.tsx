@@ -6,8 +6,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { NumberBadge } from "./NumberBadge";
-import { Button } from "@/components/ui/Button";
-import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { KeyFeaturesData } from "@/types/content";
 
@@ -138,7 +137,7 @@ export function KeyFeaturesSection({
       id="key-features"
       aria-labelledby="key-features-heading"
       className={cn(
-        "relative w-full bg-[#0b0f19] text-white overflow-hidden",
+        "relative w-full bg-[#0b0f19] text-white overflow-hidden scroll-mt-[var(--navbar-height)]",
         className
       )}
     >
@@ -147,27 +146,27 @@ export function KeyFeaturesSection({
           ========================================================================= */}
       <div
         ref={pinContainerRef}
-        className="hidden lg:flex w-full min-h-screen flex-col justify-center py-10 relative z-10"
+        className="hidden lg:flex w-full min-h-screen flex-col justify-center pt-[calc(var(--navbar-height)+20px)] pb-6 lg:pb-8 relative z-10 box-border"
       >
         {/* Eyebrow & Main Section Title */}
-        <Container className="w-full flex flex-col items-center max-w-[1320px] mb-8">
+        <Container className="w-full flex flex-col items-center max-w-[1320px] shrink-0 mb-4 xl:mb-6">
           <SectionHeading
             id="key-features-heading"
             title={title}
             align="center"
             titleAs="h2"
-            titleClassName="text-white"
-            className="mb-3"
+            titleClassName="text-white text-[28px] lg:text-[34px] xl:text-[42px] leading-tight"
+            className="mb-2"
           />
 
           {/* Subtitle */}
-          <p className="text-[15px] sm:text-[16px] text-slate-400 text-center max-w-[540px] leading-relaxed">
+          <p className="text-[13px] lg:text-[14px] xl:text-[15px] text-slate-400 text-center max-w-[560px] leading-relaxed">
             {subtitle}
           </p>
         </Container>
 
-        {/* Full-Width Features Stage: Edge-to-edge across the screen */}
-        <div className="w-full h-[520px] xl:h-[550px] relative overflow-hidden">
+        {/* Full-Width Features Stage: Viewport-height responsive across all laptop/desktop heights */}
+        <div className="w-full h-[clamp(360px,52vh,560px)] xl:h-[clamp(400px,56vh,620px)] relative overflow-hidden shrink-0">
           {tabs.map((tab, idx) => (
             <div
               key={tab.id}
@@ -176,40 +175,40 @@ export function KeyFeaturesSection({
               }}
               className="absolute inset-0 w-full h-full bg-[#0b0f19] flex items-center justify-center overflow-hidden"
             >
-              {/* Inner Content Centered in Max-Width with Generous Horizontal Padding */}
-              <div className="w-full max-w-[1400px] h-full mx-auto px-8 sm:px-12 lg:px-16 xl:px-20 flex flex-row items-center justify-between gap-8 xl:gap-16">
+              {/* Inner Content Centered in Max-Width with Balanced Padding */}
+              <div className="w-full max-w-[1400px] h-full mx-auto px-6 sm:px-8 lg:px-10 xl:px-16 flex flex-row items-center justify-between gap-6 lg:gap-8 xl:gap-12">
                 {/* Left Column: Details & CTA placed directly below description */}
-                <div className="w-[440px] xl:w-[480px] shrink-0 flex flex-col justify-center">
+                <div className="w-[320px] lg:w-[360px] xl:w-[420px] shrink-0 flex flex-col justify-center z-10">
                   {/* Step Badge & Kicker */}
-                  <div className="flex items-center gap-3 select-none mb-4 xl:mb-5">
+                  <div className="flex items-center gap-3 select-none mb-3 xl:mb-4">
                     <NumberBadge number={tab.step} />
-                    <span className="text-[13px] sm:text-[14px] font-semibold text-blue-400 tracking-tight uppercase">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-blue-400 tracking-tight uppercase">
                       {tab.kicker}
                     </span>
                   </div>
 
                   {/* Heading */}
-                  <h3 className="text-[26px] xl:text-[32px] font-bold text-white leading-[1.2] tracking-tight mb-3.5 xl:mb-4">
+                  <h3 className="text-[22px] xl:text-[28px] font-bold text-white leading-[1.2] tracking-tight mb-2.5 xl:mb-3">
                     {tab.heading}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[15px] xl:text-[16px] text-slate-400 leading-relaxed max-w-[440px] mb-6 xl:mb-7">
+                  <p className="text-[13px] xl:text-[15px] text-slate-400 leading-relaxed max-w-[440px]">
                     {tab.description}
                   </p>                 
                 </div>
 
-                {/* Right Column: Visual Preview Image (No border, no shadow, no inner box) */}
-                <div className="flex-1 h-full flex items-center justify-center p-2">
-                  <div className="w-full h-full max-h-[480px] flex items-center justify-center relative">
+                {/* Right Column: Visual Preview Image (Responsive, unclipped across all screens) */}
+                <div className="flex-1 min-w-0 h-full flex items-center justify-center p-2">
+                  <div className="w-full h-full flex items-center justify-center relative">
                     <Image
                       src={tab.visual.src || "/images/5.webp"}
                       alt={tab.visual.alt || tab.heading}
-                      width={1400}
-                      height={850}
+                      width={1520}
+                      height={1035}
                       priority={idx === 0}
-                      className="w-full h-full object-contain p-2 select-none pointer-events-none"
-                      sizes="(min-width: 1024px) 800px, 100vw"
+                      className="max-w-full max-h-full w-auto h-auto object-contain select-none pointer-events-none drop-shadow-md"
+                      sizes="(min-width: 1024px) 65vw, 100vw"
                     />
                   </div>
                 </div>
@@ -242,7 +241,7 @@ export function KeyFeaturesSection({
 
           {/* Mobile Feature Presentation Container (No border, no shadow) */}
           <div
-            className="w-full max-w-[560px] relative bg-transparent flex flex-col gap-6 touch-pan-y"
+            className="w-full max-w-[560px] sm:max-w-[620px] relative bg-transparent flex flex-col gap-6 touch-pan-y"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
@@ -270,48 +269,39 @@ export function KeyFeaturesSection({
               {tabs[activeStep].description}
             </p>
 
-            {/* Visual Image (No border, no shadow, no inner box) */}
-            <div className="w-full flex items-center justify-center min-h-[220px]">
-              <Image
-                src={tabs[activeStep].visual.src || "/images/5.webp"}
-                alt={tabs[activeStep].visual.alt || tabs[activeStep].heading}
-                width={800}
-                height={500}
-                className="w-full h-auto max-h-[280px] object-contain select-none"
-                sizes="(max-width: 1024px) 100vw, 560px"
-              />
+            {/* Visual Image */}
+            <div className="w-full flex items-center justify-center py-2">
+              <div className="w-full max-w-[560px] sm:max-w-[620px] flex items-center justify-center">
+                <Image
+                  src={tabs[activeStep].visual.src || "/images/5.webp"}
+                  alt={tabs[activeStep].visual.alt || tabs[activeStep].heading}
+                  width={1520}
+                  height={1035}
+                  priority
+                  className="w-full h-auto max-h-[360px] sm:max-h-[440px] object-contain select-none"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 620px, 800px"
+                />
+              </div>
             </div>
 
-            {/* Bottom Controls: Prev/Next & CTA */}
-            <div className="flex items-center justify-between pt-2 gap-4">
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setActiveStep((prev) => Math.max(0, prev - 1))}
-                  disabled={activeStep === 0}
-                  className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/20 transition-colors"
-                  aria-label="Previous feature"
-                >
-                  <ChevronLeft size={16} />
-                </button>
-                <button
-                  onClick={() => setActiveStep((prev) => Math.min(tabs.length - 1, prev + 1))}
-                  disabled={activeStep === tabs.length - 1}
-                  className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/20 transition-colors"
-                  aria-label="Next feature"
-                >
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-
-              <Button
-                variant="gradient"
-                size="sm"
-                href={cta?.href || "/book-a-demo"}
-                className="h-[40px] px-5 text-xs sm:text-sm font-semibold gap-1.5"
+            {/* Bottom Controls: Prev/Next */}
+            <div className="flex items-center justify-center pt-2 gap-3">
+              <button
+                onClick={() => setActiveStep((prev) => Math.max(0, prev - 1))}
+                disabled={activeStep === 0}
+                className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/20 transition-colors cursor-pointer"
+                aria-label="Previous feature"
               >
-                <Calendar size={14} strokeWidth={2.2} className="shrink-0" />
-                <span>Book a demo</span>
-              </Button>
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => setActiveStep((prev) => Math.min(tabs.length - 1, prev + 1))}
+                disabled={activeStep === tabs.length - 1}
+                className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/20 transition-colors cursor-pointer"
+                aria-label="Next feature"
+              >
+                <ChevronRight size={18} />
+              </button>
             </div>
           </div>
         </Container>

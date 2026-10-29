@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Calendar } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/Button";
 import { JurisdictionPills } from "./JurisdictionPills";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { cn } from "@/lib/cn";

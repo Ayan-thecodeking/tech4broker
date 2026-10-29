@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Button } from "@/components/ui/Button";
-import { Calendar } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { EcosystemData } from "@/types/content";
 
@@ -21,7 +19,7 @@ export function EcosystemSection({
       id="ecosystem"
       aria-labelledby="ecosystem-heading"
       className={cn(
-        "relative w-full overflow-hidden bg-[var(--color-bg)] pt-[30px] pb-12 sm:pb-14 md:pb-[60px]",
+        "relative w-full overflow-hidden bg-[var(--color-bg)] py-16 sm:py-20 lg:py-[90px] xl:py-[100px]",
         className
       )}
     >
@@ -43,7 +41,7 @@ export function EcosystemSection({
         </p>
 
         {/* 3. Central Ecosystem Graphic */}
-        <div className="w-full max-w-[1280px] mt-8 md:mt-[40px] flex justify-center items-center">
+        <div className="w-full max-w-[1020px] mt-8 md:mt-[36px] flex justify-center items-center">
           <Image
             src={ecosystem.image?.src || "/images/4.webp"}
             alt={ecosystem.image?.alt || "Tech4Broker Ecosystem"}
@@ -51,21 +49,8 @@ export function EcosystemSection({
             height={1080}
             priority
             className="w-full h-auto object-contain select-none pointer-events-none border-none shadow-none mix-blend-multiply"
-            sizes="(max-width: 1280px) 100vw, 1280px"
+            sizes="(max-width: 1020px) 100vw, 1020px"
           />
-        </div>
-
-        {/* 4. CTA Button (Outline with Calendar icon) */}
-        <div className="mt-8 md:mt-[35px] flex justify-center w-full">
-          <Button
-            variant="outline"
-            size="md"
-            href={ecosystem.cta.href}
-            className="w-full max-w-[280px] sm:w-auto min-w-[163px] h-[40px] px-6 text-sm font-medium shadow-xs gap-1.5"
-          >
-            <Calendar size={15} strokeWidth={2} className="shrink-0" />
-            <span>{ecosystem.cta.label}</span>
-          </Button>
         </div>
       </Container>
     </section>

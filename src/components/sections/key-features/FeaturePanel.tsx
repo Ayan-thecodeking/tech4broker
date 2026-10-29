@@ -3,8 +3,6 @@ import Image from "next/image";
 import { NumberBadge } from "./NumberBadge";
 import { AcquisitionMockup } from "./mockups/AcquisitionMockup";
 import { MockupPlaceholder } from "./mockups/MockupPlaceholder";
-import { Button } from "@/components/ui/Button";
-import { Calendar } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type {
   KeyFeaturesTabItem,
@@ -14,7 +12,7 @@ import type {
 export interface FeaturePanelProps {
   tab: KeyFeaturesTabItem;
   mockup: KeyFeaturesMockupData;
-  cta: {
+  cta?: {
     label: string;
     href: string;
   };
@@ -24,7 +22,6 @@ export interface FeaturePanelProps {
 export function FeaturePanel({
   tab,
   mockup,
-  cta,
   className,
 }: FeaturePanelProps) {
   return (
@@ -35,9 +32,9 @@ export function FeaturePanel({
       )}
     >
       {/* =========================================================================
-          LEFT COLUMN: Step Badge + Kicker, Heading, Description, and CTA (Desktop)
+          LEFT COLUMN: Step Badge + Kicker, Heading, Description
           ========================================================================= */}
-      <div className="w-full lg:w-[420px] xl:w-[460px] shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left h-full justify-between">
+      <div className="w-full lg:w-[420px] xl:w-[460px] shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left h-full justify-center">
         <div className="flex flex-col items-center lg:items-start">
           {/* Step Badge & Kicker Row */}
           <div className="flex items-center gap-2.5 select-none">
@@ -56,19 +53,6 @@ export function FeaturePanel({
           <p className="mt-3 sm:mt-4 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] text-slate-400 leading-relaxed max-w-[440px]">
             {tab.description}
           </p>
-        </div>
-
-        {/* CTA Button: Visible on Desktop (>=1024px) LEFT-ALIGNED at bottom */}
-        <div className="hidden lg:flex mt-10 pt-2">
-          <Button
-            variant="gradient"
-            size="md"
-            href={cta.href}
-            className="h-[40px] px-6 min-w-[168px] text-sm font-semibold shadow-[0_4px_18px_rgba(10,108,255,0.32)] gap-1.5"
-          >
-            <Calendar size={15} strokeWidth={2.2} className="shrink-0" />
-            <span>{cta.label}</span>
-          </Button>
         </div>
       </div>
 
@@ -100,19 +84,6 @@ export function FeaturePanel({
             alt={tab.visual.alt || tab.heading}
           />
         )}
-      </div>
-
-      {/* CTA Button: Mobile & Tablet View (<1024px) Centered below the mockup */}
-      <div className="flex lg:hidden w-full justify-center mt-2">
-        <Button
-          variant="gradient"
-          size="md"
-          href={cta.href}
-          className="w-full max-w-[280px] h-[40px] text-sm font-semibold shadow-[0_4px_18px_rgba(10,108,255,0.32)] gap-1.5"
-        >
-          <Calendar size={15} strokeWidth={2.2} className="shrink-0" />
-          <span>{cta.label}</span>
-        </Button>
       </div>
     </div>
   );

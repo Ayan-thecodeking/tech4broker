@@ -1,8 +1,6 @@
 import React from "react";
-import { Calendar } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Button } from "@/components/ui/Button";
 import { SupportGrid } from "./SupportGrid";
 import { cn } from "@/lib/cn";
 import type { SupportData } from "@/types/content";
@@ -36,19 +34,6 @@ export function SupportSection({ support, className }: SupportSectionProps) {
         {/* 3-Column Feature Grid */}
         <div className="w-full mt-10 sm:mt-12 lg:mt-[50px]">
           <SupportGrid features={support.features} />
-        </div>
-
-        {/* Centered CTA: Book a demo with Calendar Icon */}
-        <div className="mt-10 sm:mt-12 lg:mt-[50px] flex justify-center w-full px-4">
-          <Button
-            variant="gradient"
-            size="md"
-            href={support.cta.href}
-            className="w-full max-w-[280px] sm:w-auto sm:min-w-[190px] h-[40px] px-6 text-sm font-semibold shadow-[0_6px_24px_rgba(10,108,255,0.36)] hover:shadow-[0_8px_30px_rgba(10,108,255,0.48)] justify-center"
-          >
-            <Calendar className="w-4 h-4 mr-1 shrink-0" aria-hidden="true" />
-            <span>{support.cta.label}</span>
-          </Button>
         </div>
       </Container>
     </section>

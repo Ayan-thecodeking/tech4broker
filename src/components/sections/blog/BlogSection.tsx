@@ -82,7 +82,7 @@ export function BlogSection({
       id="blog"
       aria-label="Blog and Industry Insights"
       className={cn(
-        "py-[90px] lg:py-[130px] bg-[#f8fafc] text-slate-900 relative w-full overflow-hidden",
+        "py-[90px] lg:py-[130px] text-slate-900 relative w-full overflow-hidden",
         className
       )}
     >
@@ -168,7 +168,7 @@ export function BlogSection({
 
         {/* Mobile Navigation Controls (Start & End buttons below for mobile screens <640px) */}
         {posts.length > cardsPerView && (
-          <div className="flex sm:hidden items-center justify-between mt-6 px-3">
+          <div className="flex sm:hidden items-center justify-center gap-4 mt-6 px-3">
             <button
               type="button"
               onClick={handlePrev}
@@ -177,31 +177,13 @@ export function BlogSection({
               className={cn(
                 "flex items-center gap-1.5 px-4 h-10 rounded-full border border-slate-200 bg-white text-xs font-semibold shadow-xs select-none",
                 canGoPrev
-                  ? "text-slate-800 active:scale-95 hover:bg-slate-50"
+                  ? "text-slate-800 active:scale-95 hover:bg-slate-50 cursor-pointer"
                   : "opacity-35 text-slate-400 cursor-not-allowed"
               )}
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Previous</span>
             </button>
-
-            {/* Pagination Dots indicator */}
-            <div className="flex items-center gap-1.5">
-              {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setCurrentIndex(idx)}
-                  className={cn(
-                    "h-2 rounded-full transition-all duration-300",
-                    currentIndex === idx
-                      ? "w-6 bg-blue-600"
-                      : "w-2 bg-slate-300 hover:bg-slate-400"
-                  )}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
 
             <button
               type="button"
@@ -211,33 +193,13 @@ export function BlogSection({
               className={cn(
                 "flex items-center gap-1.5 px-4 h-10 rounded-full border border-slate-200 bg-white text-xs font-semibold shadow-xs select-none",
                 canGoNext
-                  ? "text-slate-800 active:scale-95 hover:bg-slate-50"
+                  ? "text-slate-800 active:scale-95 hover:bg-slate-50 cursor-pointer"
                   : "opacity-35 text-slate-400 cursor-not-allowed"
               )}
             >
               <span>Next</span>
               <ChevronRight className="w-4 h-4" />
             </button>
-          </div>
-        )}
-
-        {/* Desktop Pagination Dots Indicator */}
-        {posts.length > cardsPerView && (
-          <div className="hidden sm:flex items-center justify-center gap-2 mt-8 lg:mt-10">
-            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setCurrentIndex(idx)}
-                className={cn(
-                  "h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer",
-                  currentIndex === idx
-                    ? "w-8 bg-blue-600"
-                    : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                )}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
           </div>
         )}
       </Container>

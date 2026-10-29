@@ -165,8 +165,8 @@
   --gradient-customized-glow: radial-gradient(circle at 100% 0%, var(--color-glow-lilac) 0%, transparent 35%);
 
   /* Ecosystem Section Tokens */
-  --diagram-width: 1080px;
-  --diagram-height: 600px;
+  --diagram-width: 980px;
+  --diagram-height: 550px;
   --hub-size: 175px;
   --hub-size-mobile: 120px;
   --bubble-size: 48px;
