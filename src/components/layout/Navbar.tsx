@@ -61,9 +61,18 @@ export function Navbar({ navLinks, ctaText, ctaUrl }: NavbarProps) {
   };
 
   const handleMouseLeave = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
-    }, 250);
+    }, 200);
+  };
+
+  const closeDropdownImmediately = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setDropdownOpen(false);
   };
 
   useEffect(() => {
@@ -103,7 +112,10 @@ export function Navbar({ navLinks, ctaText, ctaUrl }: NavbarProps) {
             className="w-full h-[var(--navbar-height)] rounded-[var(--radius-pill)] bg-[rgba(255,255,255,0.75)] backdrop-blur-xl border border-[var(--color-border)] shadow-[var(--shadow-nav)] px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-shadow duration-[var(--transition-base)]"
           >
             {/* Brand Logo */}
-            <div className="shrink-0 flex items-center">
+            <div
+              className="shrink-0 flex items-center"
+              onMouseEnter={closeDropdownImmediately}
+            >
               <Logo />
             </div>
 
@@ -130,7 +142,7 @@ export function Navbar({ navLinks, ctaText, ctaUrl }: NavbarProps) {
                       >
                         <span>{item.label}</span>
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${
+                          className={`w-4 h-4 transition-transform duration-300 ease-out ${
                             dropdownOpen
                               ? "rotate-180 text-[var(--color-primary)]"
                               : "text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)]"
@@ -146,6 +158,7 @@ export function Navbar({ navLinks, ctaText, ctaUrl }: NavbarProps) {
                   <Link
                     key={item.label}
                     href={item.href}
+                    onMouseEnter={closeDropdownImmediately}
                     className={`group flex items-center text-sm font-medium transition-colors duration-[var(--transition-base)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] rounded-full px-2.5 py-1 ${
                       item.isActive
                         ? "text-[var(--color-primary)] font-semibold"
@@ -160,7 +173,10 @@ export function Navbar({ navLinks, ctaText, ctaUrl }: NavbarProps) {
             </div>
 
             {/* Right Action / Mobile Toggle */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div
+              className="flex items-center gap-2 sm:gap-3"
+              onMouseEnter={closeDropdownImmediately}
+            >
               <div className="hidden lg:block">
                 <Button
                   variant="gradient"
@@ -186,9 +202,13 @@ export function Navbar({ navLinks, ctaText, ctaUrl }: NavbarProps) {
           </nav>
 
           {/* Centered Product Dropdown Mega-Menu directly below the navbar */}
-          {dropdownOpen && productDropdownItem?.dropdownProducts && (
+          {productDropdownItem?.dropdownProducts && (
             <div
-              className="absolute top-[calc(100%+10px)] left-0 right-0 mx-auto w-full max-w-6xl rounded-3xl bg-[rgba(255,255,255,0.95)] backdrop-blur-2xl border border-[var(--color-border)] shadow-[0_24px_50px_rgba(15,23,42,0.12)] p-6 sm:p-8 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200 before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-4"
+              className={`hidden lg:block absolute top-[calc(100%+12px)] left-0 right-0 mx-auto w-full max-w-6xl rounded-3xl bg-[rgba(255,255,255,0.96)] backdrop-blur-2xl border border-[var(--color-border)] shadow-[0_24px_50px_rgba(15,23,42,0.12)] p-6 sm:p-8 z-50 before:content-[''] before:absolute before:-top-4 before:inset-x-0 before:h-5 transform-gpu transition-all duration-300 ease-out ${
+                dropdownOpen
+                  ? "opacity-100 translate-y-0 scale-100 pointer-events-auto visible"
+                  : "opacity-0 -translate-y-2.5 scale-[0.985] pointer-events-none invisible"
+              }`}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
