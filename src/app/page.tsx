@@ -78,10 +78,10 @@ export default function HomePage() {
         <FaqSection />
 
         {/* Services We Offer Section (Bottom) */}
-        <ServicesWeOfferSection />
+        {/* <ServicesWeOfferSection /> */}
 
         {/* Flexible & Customisable CRM Banner (Bottom) */}
-        <FlexibleCrmBanner />
+        {/* <FlexibleCrmBanner /> */}
       </main>
     </div>
   );
