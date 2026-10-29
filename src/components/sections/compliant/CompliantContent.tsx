@@ -103,9 +103,7 @@ export function CompliantContent({
       {/* 2. Main Title */}
       <div className={cn("animate-compliant-text", kickerText && "mt-5 sm:mt-8 lg:mt-12")}>
         <h2 className="text-[length:var(--fs-section-title)] font-[number:var(--fw-bold)] leading-[1.15] text-white tracking-tight max-w-2xl xl:max-w-3xl">
-          <span className="block">Keeping You</span>
-          <span className="block">Compliant Wherever</span>
-          <span className="block">You Are Regulated</span>
+          {content.title}
         </h2>
       </div>
 

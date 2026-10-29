@@ -219,6 +219,7 @@ export interface CustomizedTabItem {
   id: string;
   label: string;
   heading: string;
+  subheading?: string;
   bullets: string[];
   visual: TabVisual;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Mail, MapPin, Globe, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 export interface FooterProps {
@@ -9,6 +10,27 @@ export interface FooterProps {
 
 export function Footer({ className }: FooterProps) {
   const currentYear = new Date().getFullYear();
+
+  const platformLinks = [
+    { label: "CRM", href: "/#customized" },
+    { label: "Compliance", href: "/#compliant" },
+    { label: "Trading Integration", href: "/#integrated" },
+    { label: "Payments", href: "/#payments" },
+    { label: "Automations & AI", href: "/#key-features" },
+    { label: "Marketing", href: "/#key-features" },
+    { label: "IB Suite", href: "/#key-features" },
+    { label: "SupportIQ", href: "/#support" },
+    { label: "Prop Trading", href: "/#prop-crm" },
+    { label: "Mobile App", href: "/#mobile-app" },
+    { label: "Integrations", href: "/#ecosystem" },
+  ];
+
+  const companyLinks = [
+    { label: "About Us", href: "/#why-tech4broker" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Contact", href: "/#contact" },
+    { label: "Blog", href: "/#blog" },
+  ];
 
   return (
     <footer
@@ -19,9 +41,9 @@ export function Footer({ className }: FooterProps) {
         className
       )}
     >
-      <div className="w-[min(1180px,92%)] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 lg:gap-12 mb-16">
+      <div className="w-[min(1240px,92%)] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 mb-16">
         {/* Brand Column */}
-        <div className="md:col-span-5">
+        <div className="sm:col-span-2 lg:col-span-4">
           <Link
             href="/"
             className="inline-block mb-6"
@@ -36,89 +58,92 @@ export function Footer({ className }: FooterProps) {
             />
           </Link>
 
-          <p className="max-w-[380px] leading-[1.65] text-slate-400 text-[14px]">
+          <p className="max-w-[360px] leading-[1.65] text-slate-400 text-[14px]">
             The technology and infrastructure behind your trading business. From company setup and liquidity to MT4/MT5
             connectivity and prop-firm platforms.
           </p>
         </div>
 
-        {/* Solutions Links */}
-        <div className="md:col-span-4">
-          <h4 className="text-white font-bold mb-6 text-[15px] tracking-tight">Solutions</h4>
-          <ul className="space-y-3.5">
-            <li>
-              <Link href="/#company" className="hover:text-[#38bdf8] transition-colors">
-                Tech4Broker Launch (Company Setup)
-              </Link>
-            </li>
-            <li>
-              <Link href="/#products" className="hover:text-[#38bdf8] transition-colors">
-                Tech4Broker Core (Turnkey Brokerage)
-              </Link>
-            </li>
-            <li>
-              <Link href="/#products" className="hover:text-[#38bdf8] transition-colors">
-                Tech4Broker Social (Copy Trading)
-              </Link>
-            </li>
-            <li>
-              <Link href="/#products" className="hover:text-[#38bdf8] transition-colors">
-                Tech4Broker Liquidity (Bridge &amp; Feeds)
-              </Link>
-            </li>
-            <li>
-              <Link href="/#prediction" className="hover:text-[#38bdf8] transition-colors">
-                Prop-Firm &amp; Funded Accounts
-              </Link>
-            </li>
+        {/* Platform Links */}
+        <div className="sm:col-span-1 lg:col-span-3">
+          <h4 className="text-white font-bold mb-6 text-[14px] sm:text-[15px] tracking-wider uppercase">
+            Platform
+          </h4>
+          <ul className="space-y-3">
+            {platformLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="hover:text-[#00B4E6] transition-colors inline-block"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Platform Links */}
-        <div className="md:col-span-3">
-          <h4 className="text-white font-bold mb-6 text-[15px] tracking-tight">Platform</h4>
-          <ul className="space-y-3.5">
+        {/* Company Links */}
+        <div className="sm:col-span-1 lg:col-span-2">
+          <h4 className="text-white font-bold mb-6 text-[14px] sm:text-[15px] tracking-wider uppercase">
+            Company
+          </h4>
+          <ul className="space-y-3">
+            {companyLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="hover:text-[#00B4E6] transition-colors inline-block"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact Information & Action */}
+        <div className="sm:col-span-2 lg:col-span-3">
+          <h4 className="text-white font-bold mb-6 text-[14px] sm:text-[15px] tracking-wider uppercase">
+            Contact
+          </h4>
+          <ul className="space-y-4 text-[14px]">
             <li>
-              <Link href="/#ecosystem" className="hover:text-[#38bdf8] transition-colors">
-                Ecosystem Overview
-              </Link>
+              <a
+                href="mailto:sales@tech4broker.com"
+                className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+              >
+                <Mail className="w-4 h-4 text-[#00B4E6] shrink-0 group-hover:scale-110 transition-transform" />
+                <span>sales@tech4broker.com</span>
+              </a>
             </li>
-            <li>
-              <Link href="/#why-tech4broker" className="hover:text-[#38bdf8] transition-colors">
-                Why Tech4Broker
-              </Link>
+            <li className="flex items-start gap-3 text-slate-300">
+              <MapPin className="w-4 h-4 text-[#00B4E6] shrink-0 mt-1" />
+              <span className="leading-relaxed">
+                201 Haverstock Hill, Second Floor, London, NW3 4QG, UK
+              </span>
             </li>
-            <li>
-              <Link href="/#company" className="hover:text-[#38bdf8] transition-colors">
-                How It Works
-              </Link>
-            </li>
-            <li>
-              <Link href="/#testimonials" className="hover:text-[#38bdf8] transition-colors">
-                Client Testimonials
-              </Link>
-            </li>
-            <li>
-              <Link href="/#blog" className="hover:text-[#38bdf8] transition-colors">
-                Blog &amp; Insights
-              </Link>
-            </li>
-            <li>
-              <Link href="/#faq" className="hover:text-[#38bdf8] transition-colors">
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link href="/#contact" className="hover:text-[#38bdf8] transition-colors">
-                Contact &amp; Support
-              </Link>
+            <li className="flex items-center gap-3 text-slate-300">
+              <Globe className="w-4 h-4 text-[#00B4E6] shrink-0" />
+              <span>Global Operations</span>
             </li>
           </ul>
+
+          {/* Theme Gradient CTA Button */}
+          <div className="mt-7">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#0A6CFF] to-[#00B4E6] text-white font-semibold text-[14px] shadow-[0_4px_20px_rgba(10,108,255,0.35)] hover:shadow-[0_8px_25px_rgba(10,108,255,0.5)] hover:brightness-105 active:scale-95 transition-all w-full sm:w-auto"
+            >
+              <span>Get in Touch</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="w-[min(1180px,92%)] mx-auto border-t border-white/10 pt-8 flex items-center justify-between text-[13px] text-slate-500">
+      <div className="w-[min(1240px,92%)] mx-auto border-t border-white/10 pt-8 flex items-center justify-between text-[13px] text-slate-500">
         <div>© {currentYear} Tech4Broker. All rights reserved.</div>
       </div>
     </footer>

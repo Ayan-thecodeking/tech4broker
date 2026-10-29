@@ -11,10 +11,10 @@ import type {
 
 export const heroContent: HeroContentData = {
   eyebrow: "#1 Forex & Prop CRM",
-  headingLines: ["Built for", "FX Brokers &", "Prop Firms"],
+  headingLines: ["The Platform Behind", "Your Trading Business"],
   sincePrefix: "Since",
   paragraph:
-    "tech4broker gives brokers one platform to onboard, fund, and manage traders with the integrations and compliance you need.",
+    "Manage traders, accounts, payments, and operations without switching between tools.",
   tagline: "Trusted. Integrated. Compliant.",
   ctaButtonText: "Book a demo",
   ctaButtonUrl: "#demo",
@@ -119,7 +119,7 @@ export const trustedContent: TrustedData = {
 
 export const integratedContent: IntegratedData = {
   eyebrow: "",
-  title: "Working with your favorite trading platforms",
+  title: "Connect the Trading Platforms You Already Use",
   platforms: [
     {
       name: "MetaTrader 4",
@@ -174,9 +174,9 @@ export const compliantContent: CompliantData = {
   eyebrow: "",
   kicker: "",
   showRankBadge: false,
-  title: "Keeping You Compliant Wherever You Are Regulated",
+  title: "Built to Support Your Regulatory Requirements",
   description:
-    "Our system meets all standards and requirements relevant to your jurisdiction.",
+    "Manage your brokerage with tools designed to support local regulatory requirements, KYC verification, and compliance workflows across different markets.",
   jurisdictions: [
     { label: "UK – FCA", countryCode: "GB" },
     { label: "South Africa – FSCA", countryCode: "ZA" },
@@ -197,7 +197,7 @@ export const compliantContent: CompliantData = {
 
 export const paymentsContent: PaymentsData = {
   eyebrow: "",
-  title: "Working with your favorite Payment providers",
+  title: "Connect the Payment Methods Your Clients Prefer",
   animated: true,
   providers: [
     {
@@ -339,54 +339,59 @@ export const supportContent: SupportData = {
 
 export const customizedContent: CustomizedData = {
   eyebrow: "",
-  title: "Your design, your business flows, your way",
+  title: "Customize the Platform to Fit Your Business",
   autoRotate: false,
   tabs: [
     {
-      id: "white-label",
-      label: "White Label CRM",
-      heading:
-        "Empower your sales and retention team with easy to use trader management tools",
+      id: "manage-clients",
+      label: "Client Management",
+      heading: "Manage Clients and Grow Your Brokerage",
+      subheading:
+        "Give your sales and retention teams the tools to manage traders, automate follow-ups, and track business performance from one place.",
       bullets: [
-        "Create automated business workflows",
-        "Generate reports to manage and optimise your operations",
-        "Get Business Intelligence insights",
+        "Automate routine tasks and client follow-ups",
+        "Generate reports to track team performance",
+        "Get insights into deposits, leads, and client activity",
       ],
       visual: {
         type: "image",
         src: "/images/1.webp",
-        alt: "White Label CRM preview",
+        alt: "Manage Clients and Grow Your Brokerage preview",
       },
     },
     {
-      id: "back-office",
-      label: "Fully Customizable Back Office",
-      heading: "Run your operations from one flexible back office",
+      id: "operations",
+      label: "Brokerage Operations",
+      heading: "Manage Your Brokerage Operations in One Place",
+      subheading:
+        "Control your team, set user permissions, manage client onboarding, and configure IB commission structures from one back office.",
       bullets: [
-        "Control users and field-level permissions",
-        "Set up onboarding flows per jurisdiction",
-        "Manage multi-level IB commission structures",
-        "Review security status and detailed logs",
+        "Manage team access and user permissions",
+        "Customize onboarding for different markets",
+        "Set up multi-level IB commission structures",
+        "Monitor security activity and access logs",
       ],
       visual: {
         type: "image",
         src: "/images/2.webp",
-        alt: "Customizable Back Office preview",
+        alt: "Manage Your Brokerage Operations in One Place preview",
       },
     },
     {
-      id: "traders-area",
-      label: "Traders' Area",
-      heading: "Give traders a smooth portal that keeps them coming back",
+      id: "traders-portal",
+      label: "Traders' Portal",
+      heading: "Give Traders One Place to Manage Their Accounts",
+      subheading:
+        "Let traders sign up, complete onboarding, manage their trading accounts, and make deposits through a portal that carries your brand.",
       bullets: [
-        "A fully brandable portal for sign-up and onboarding",
-        "Easy deposits and account management",
-        "Works on any device",
+        "A portal customized with your brand",
+        "Easy access to deposits and account management",
+        "Works across desktop, tablet, and mobile",
       ],
       visual: {
         type: "image",
         src: "/images/3.webp",
-        alt: "Traders' Area portal preview",
+        alt: "Give Traders One Place to Manage Their Accounts preview",
       },
     },
   ],

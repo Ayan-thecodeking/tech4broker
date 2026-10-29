@@ -44,10 +44,10 @@ export function Hero({ content, foundedYear }: HeroProps) {
         <div className="max-w-[620px] xl:max-w-[700px] flex flex-col items-center lg:items-start text-center lg:text-left">
           {/* Top Chip: "Since 2008" */}
 
-          {/* Main Headline: "Built for FX Brokers & Prop Firms" */}
+          {/* Main Headline: "The Platform Behind Your Trading Business" */}
           <h1 className="text-[clamp(38px,5vw,66px)] leading-[1.08] tracking-tight mt-2 mb-6 font-bold text-[#1E2E4E]">
-            Built for<br />
-            <span className="text-[#0B192C]">FX Brokers &amp; Prop Firms</span>
+            The Platform Behind<br />
+            <span className="text-[#0B192C]">Your Trading Business</span>
           </h1>
 
           {/* Subtitle Paragraph */}

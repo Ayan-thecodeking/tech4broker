@@ -44,8 +44,14 @@ export function CustomizedPanel({
           {tab.heading}
         </h3>
 
+        {tab.subheading && (
+          <p className="mt-3 sm:mt-3.5 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] text-slate-400 leading-relaxed max-w-[480px]">
+            {tab.subheading}
+          </p>
+        )}
+
         {/* Bullets with Tick Icon */}
-        <ul className="mt-6 sm:mt-7 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] leading-relaxed max-w-[480px]">
+        <ul className="mt-5 sm:mt-6 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] font-[number:var(--fw-regular)] leading-relaxed max-w-[480px]">
           {tab.bullets.map((bullet) => (
             <li key={bullet} className="flex items-start gap-3">
               <span className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
